@@ -483,6 +483,22 @@ body>section+section::before{content:'';position:absolute;top:0;left:50%;transfo
 .b-big .b-proof a,.b-big .b-proof span{color:var(--muted);font-style:italic}
 .b-big .b-proof a{text-decoration:underline;text-underline-offset:2px}
 
+/* platform split layout */
+.plat-split{display:grid;grid-template-columns:.85fr 1.15fr;gap:72px;align-items:start}
+@media(max-width:900px){.plat-split{grid-template-columns:1fr;gap:28px}}
+.plat-head{position:sticky;top:120px}
+@media(max-width:900px){.plat-head{position:static}}
+.plat-head .h2{margin-bottom:16px}
+.plat-list{list-style:none;margin:0;background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:8px 32px;box-shadow:var(--sh-sm)}
+@media(max-width:560px){.plat-list{padding:4px 20px}}
+.plat-list li{padding:24px 0;border-bottom:1px solid var(--border)}
+.plat-list li:last-child{border-bottom:none}
+.plat-list h3{font-size:clamp(1.45rem,2.4vw,1.75rem);line-height:1.2;margin-bottom:6px}
+.plat-list p{font-size:17px;color:var(--muted);line-height:1.6;margin:0}
+.plat-list .b-proof{font-size:13.5px;margin-top:8px;opacity:.85}
+.plat-list .b-proof a,.plat-list .b-proof span{color:var(--muted);font-style:italic}
+.plat-list .b-proof a{text-decoration:underline;text-underline-offset:2px}
+
 /* faq */
 .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;max-width:1100px}
 @media(max-width:760px){.faq-list{grid-template-columns:1fr;max-width:700px}}
@@ -636,12 +652,12 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
 
 <!-- PLATFORM -->
 <section class="g-aqua-white">
-  <div class="wrap">
-    <div class="sec-head">
+  <div class="wrap plat-split">
+    <div class="plat-head">
       <h2 class="h2">Built to load fast, stay secure, and keep working</h2>
       <p class="lead">Same design you know, on a foundation that performs better and asks less of you.</p>
     </div>
-    <ul class="b-big"><li><h3>Fast-loading pages</h3><p>Lightweight pages built to load quickly on any phone, so visitors see your practice instead of a spinning wheel.</p><p class="b-proof">12 files to load instead of 49 for the same homepage design. <span>Our Lighthouse test, Nov 2026</span></p></li><li><h3>A secure website</h3><p>Far fewer ways in for hackers, so you're not dealing with surprise warnings or worrying about your clients' trust.</p><p class="b-proof">91% of new WordPress security flaws in 2025 were in add-on plugins. <a href="https://patchstack.com/whitepaper/state-of-wordpress-security-in-2026/" target="_blank" rel="noopener">Patchstack, 2026</a></p></li><li><h3>Easier upkeep</h3><p>No plugins to keep updated and no surprise errors after an update. Your site just keeps working.</p><p class="b-proof">WordPress plugins and themes needed fixes for over 11,000 new flaws in 2025. <a href="https://patchstack.com/whitepaper/state-of-wordpress-security-in-2026/" target="_blank" rel="noopener">Patchstack, 2026</a></p></li><li><h3>A foundation for search</h3><p>Clean pages that Google and AI search tools can read easily, giving you a stronger starting point to be found.</p><p class="b-proof">Google counts page experience among its ranking signals. <a href="https://developers.google.com/search/docs/appearance/page-experience" target="_blank" rel="noopener">Google Search Central</a></p></li></ul>
+    <ul class="plat-list"><li><h3>Fast-loading pages</h3><p>Lightweight pages built to load quickly on any phone, so visitors see your practice instead of a spinning wheel.</p><p class="b-proof">12 files to load instead of 49 for the same homepage design. <span>Our Lighthouse test, Nov 2026</span></p></li><li><h3>A secure website</h3><p>Far fewer ways in for hackers, so you're not dealing with surprise warnings or worrying about your clients' trust.</p><p class="b-proof">91% of new WordPress security flaws in 2025 were in add-on plugins. <a href="https://patchstack.com/whitepaper/state-of-wordpress-security-in-2026/" target="_blank" rel="noopener">Patchstack, 2026</a></p></li><li><h3>Easier upkeep</h3><p>No plugins to keep updated and no surprise errors after an update. Your site just keeps working.</p><p class="b-proof">WordPress plugins and themes needed fixes for over 11,000 new flaws in 2025. <a href="https://patchstack.com/whitepaper/state-of-wordpress-security-in-2026/" target="_blank" rel="noopener">Patchstack, 2026</a></p></li><li><h3>A foundation for search</h3><p>Clean pages that Google and AI search tools can read easily, giving you a stronger starting point to be found.</p><p class="b-proof">Google counts page experience among its ranking signals. <a href="https://developers.google.com/search/docs/appearance/page-experience" target="_blank" rel="noopener">Google Search Central</a></p></li></ul>
   </div>
 </section>
 

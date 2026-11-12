@@ -231,6 +231,56 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 .tour-steps li{font-size:16px;color:var(--muted);padding:10px 14px;border-left:3px solid var(--border);border-radius:0 var(--r) var(--r) 0;transition:background .3s,border-color .3s,color .3s}
 .tour-steps li.on{background:var(--white);border-left-color:var(--coral);color:var(--text);box-shadow:var(--sh-sm)}
 
+/* decision tree */
+.node[hidden],.node-answer[hidden]{display:none!important}
+.tree{position:relative;max-width:980px;margin:0 auto}
+.node{position:relative;display:grid;grid-template-columns:44px 1fr;gap:20px;padding-bottom:28px}
+.node:not(:last-of-type)::before{content:'';position:absolute;left:21px;top:44px;bottom:0;width:2px;background:repeating-linear-gradient(180deg,rgba(255,127,80,.45) 0 6px,transparent 6px 12px)}
+.node.is-last::before{display:none}
+.node-dot{width:44px;height:44px;border-radius:50%;background:var(--white);border:2px solid var(--coral);color:var(--coral);display:flex;align-items:center;justify-content:center;font-family:var(--head);font-weight:700;font-size:1.3rem;box-shadow:var(--sh-sm);z-index:1}
+.node.is-done .node-dot{background:var(--coral);color:var(--white)}
+.node-dot-end{background:var(--coral);color:var(--white)}
+.node-card{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);padding:26px 28px;box-shadow:0 10px 40px rgba(2,82,93,.08);animation:nodeIn .35s ease}
+.node.is-done .node-card{padding:16px 22px;box-shadow:var(--sh-sm);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px}
+.node-q{font-size:clamp(1.35rem,2.4vw,1.7rem);margin-bottom:18px}
+.node.is-done .node-q{font-size:1.1rem;margin:0;color:var(--muted);font-family:var(--body);font-weight:600}
+.node-answer{display:flex;align-items:center;gap:12px;font-weight:700;color:var(--navy)}
+.node-answer button{background:none;border:none;color:var(--coral);font:inherit;font-size:14px;font-weight:700;cursor:pointer;text-decoration:underline;text-underline-offset:3px;padding:0}
+.choices{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.choices-3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:700px){.choices,.choices-3{grid-template-columns:1fr}}
+.node.is-done .choices{display:none}
+.choice{display:flex;gap:14px;align-items:flex-start;text-align:left;background:var(--soft);border:1.5px solid var(--border);border-radius:var(--r);padding:18px 18px;cursor:pointer;font:inherit;color:var(--text);transition:border-color .15s,background .15s,transform .15s,box-shadow .15s}
+.choice:hover,.choice:focus-visible{border-color:var(--coral);background:var(--white);transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,127,80,.15);outline:none}
+.choice strong{display:block;font-family:var(--head);font-size:1.25rem;font-weight:600;color:var(--navy);line-height:1.2;margin-bottom:4px}
+.choice small{display:block;font-size:14px;color:var(--muted);line-height:1.4}
+.choice-icon{flex-shrink:0;width:40px;height:40px;border-radius:50%;background:var(--peach);color:var(--coral);display:flex;align-items:center;justify-content:center}
+@keyframes nodeIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){.node-card,.result{animation:none}}
+
+.result{display:grid;grid-template-columns:.9fr 1.4fr;background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;box-shadow:0 14px 48px rgba(2,82,93,.12);animation:nodeIn .4s ease}
+@media(max-width:860px){.result{grid-template-columns:1fr}}
+.result-visual{position:relative;padding:56px 28px 32px;display:flex;align-items:center;min-height:220px}
+.result-visual .browser{width:100%}
+.result-visual img{aspect-ratio:4/3}
+.result-body{padding:30px 34px 32px;display:flex;flex-direction:column;gap:12px}
+@media(max-width:640px){.result-body{padding:24px 22px 26px}}
+.result-kicker{font-size:15px;font-weight:700;color:var(--coral);margin:0}
+.result h3{font-size:clamp(1.6rem,2.8vw,2.1rem);line-height:1.15}
+.result-sub{font-size:17px;color:var(--muted);margin:0}
+.result-meta{font-size:15px;color:var(--muted);margin:0;padding-top:14px;border-top:1px solid var(--border)}
+.result-meta strong{color:var(--navy)}
+.result-actions{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-top:6px}
+.result-actions button{background:none;border:none;font:inherit;font-size:15px;font-weight:700;color:var(--navy);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:0}
+
+.tour-toggle{margin-top:36px;background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:var(--sh-sm)}
+.tour-toggle summary{list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 26px;font-family:var(--head);font-size:clamp(1.3rem,2.2vw,1.55rem);font-weight:600;color:var(--navy)}
+.tour-toggle summary::-webkit-details-marker{display:none}
+.tour-toggle summary:hover .caret{background:var(--coral);color:var(--white)}
+.caret{flex-shrink:0;width:36px;height:36px;border-radius:50%;background:var(--peach);color:var(--coral);display:flex;align-items:center;justify-content:center;transition:transform .25s,background .15s,color .15s}
+.tour-toggle[open] .caret{transform:rotate(180deg)}
+.tour-body{margin-top:0;padding:4px 26px 26px;border-top:1px solid var(--border);padding-top:24px}
+
 /* faq */
 .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;max-width:1100px}
 @media(max-width:760px){.faq-list{grid-template-columns:1fr;max-width:700px}}
@@ -333,21 +383,24 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
         <p>Open your site, switch on edit mode, click the words you want to change, and type. Your fonts, colors, and layout stay exactly as they are, so there's nothing to break.</p>
       </div>
     </div>
-    <div class="clip clip-rev">
-      <div class="clip-text">
-        <h3>Or use your dashboard</h3>
-        <p>Everything lives in one place, and every box is labeled with the part of the page it changes.</p>
-        <ul class="tour-steps" aria-label="What the dashboard tour shows">
-          <li data-at="0">Your pages, services, posts, and testimonials, one click away</li>
-          <li data-at="3.8">Labeled fields for each part of your homepage</li>
-          <li data-at="7.6">Blog posts that work like writing a doc</li>
-          <li data-at="11.4">New testimonials: paste the quote, add a name</li>
-        </ul>
+    <details class="tour-toggle" id="tour-toggle">
+      <summary><span>Or use your dashboard</span><span class="caret" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+      <div class="clip clip-rev tour-body">
+        <div class="clip-text">
+          <p>Everything lives in one place, and every box is labeled with the part of the page it changes.</p>
+          <ul class="tour-steps" aria-label="What the dashboard tour shows">
+            <li data-at="0">Your pages, services, posts, and testimonials, one click away</li>
+            <li data-at="3.8">Labeled fields for each part of your homepage</li>
+            <li data-at="7.6">Blog posts that work like writing a doc</li>
+            <li data-at="11.4">New testimonials: paste the quote, add a name</li>
+          </ul>
+        </div>
+        <div class="browser clip-video">
+          <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+          <video id="tour" muted loop playsinline preload="none" poster="assets/dashboard-tour.jpg" src="assets/dashboard-tour.mp4" aria-label="A tour of the dashboard: the overview, homepage fields, the blog editor, and a testimonial form"></video>
+        </div>
       </div>
-      <div class="browser clip-video">
-        <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-        <video id="tour" autoplay muted loop playsinline preload="metadata" poster="assets/dashboard-tour.jpg" src="assets/dashboard-tour.mp4" aria-label="A tour of the dashboard: the overview, homepage fields, the blog editor, and a testimonial form"></video>
-      </div>
+    </details>
     </div>
   </div>
 </section>
@@ -357,45 +410,98 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
   <div class="wrap">
     <div class="sec-head">
       <h2 class="h2">Where is your site right now?</h2>
-      <p class="lead">Pick the one that sounds like you. Either way, we do the heavy lifting.</p>
+      <p class="lead">Answer two quick questions and we'll show you what your move looks like.</p>
     </div>
-    <div class="paths">
-      <article class="path2">
-        <div class="path2-visual" style="background:var(--t-classic)">
-          <span class="path2-badge"><span class="path-dot" aria-hidden="true"></span>Live</span>
-          <div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/design-one.jpg" alt="" /></div>
-        </div>
-        <div class="path2-body">
-          <p class="path2-kicker">My site is live</p>
-          <h3>We move it over for you.</h3>
-          <p class="path2-sub">We start from your live site, so you only send what you want changed.</p>
-          <div class="split">
-            <div><h4>You send</h4><ul class="inc-list"><li>Only the changes you want, if any</li><li>New photos, testimonials, or branding, if you're refreshing</li></ul></div>
-            <div><h4>We handle</h4><ul class="inc-list"><li>Moving your copy, photos, and testimonials</li><li>Rebuilding it in your design, or a new one at no extra charge</li><li>Editing any new copy so it fits</li><li>Setup, domain, and launch</li></ul></div>
+
+    <div class="tree" id="tree">
+      <div class="node" data-node="start">
+        <div class="node-dot" aria-hidden="true">1</div>
+        <div class="node-card">
+          <h3 class="node-q">Is your website live right now?</h3>
+          <div class="node-answer" hidden></div>
+          <div class="choices">
+            <button type="button" class="choice" data-next="live"><span class="choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></span><span><strong>Yes, it's live</strong><small>People can visit it today</small></span></button>
+            <button type="button" class="choice" data-next="notlive"><span class="choice-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4z"/></svg></span><span><strong>Not yet</strong><small>It's still in progress or never launched</small></span></button>
           </div>
-          <div class="path2-foot"><p>Often the simplest move. Your price depends on how much you want changed.</p><a class="btn btn-p" href="#book-call">Book a call with Whitney</a></div>
         </div>
-      </article>
-      <article class="path2">
-        <div class="path2-visual" style="background:var(--t-bright)">
-          <span class="path2-badge"><span class="path-dot empty" aria-hidden="true"></span>Draft</span>
-          <div class="browser is-draft"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/design-two.jpg" alt="" /></div>
-        </div>
-        <div class="path2-body">
-          <p class="path2-kicker">My site isn't live yet</p>
-          <h3>We finish it and launch it.</h3>
-          <p class="path2-sub">We pick up wherever you stopped.</p>
-          <div class="split">
-            <div><h4>You send</h4><ul class="inc-list"><li>Your copy drafts, however rough</li><li>Your logo, colors, and photos</li></ul></div>
-            <div><h4>We handle</h4><ul class="inc-list"><li>Editing your drafts into finished copy, or writing it for you</li><li>Building every page in the design you chose</li><li>Stock photos, booking calendar, and opt-in</li><li>Setup, domain, and launch</li></ul></div>
+      </div>
+
+      <div class="node" data-node="live" hidden>
+        <div class="node-dot" aria-hidden="true">2</div>
+        <div class="node-card">
+          <h3 class="node-q">Do you want to change anything while we move it?</h3>
+          <div class="node-answer" hidden></div>
+          <div class="choices choices-3">
+            <button type="button" class="choice" data-result="asis"><span><strong>Keep it as it is</strong><small>I'm happy with my site</small></span></button>
+            <button type="button" class="choice" data-result="refresh"><span><strong>Update a few things</strong><small>Services, photos, wording, or branding</small></span></button>
+            <button type="button" class="choice" data-result="newcopy"><span><strong>I want new copy</strong><small>My words need a real rewrite</small></span></button>
           </div>
-          <div class="path2-foot"><p>Your price depends on how much of your copy is done and how much help you want with it.</p><a class="btn btn-p" href="#book-call">Book a call with Whitney</a></div>
         </div>
-      </article>
+      </div>
+
+      <div class="node" data-node="notlive" hidden>
+        <div class="node-dot" aria-hidden="true">2</div>
+        <div class="node-card">
+          <h3 class="node-q">How's your website copy coming along?</h3>
+          <div class="node-answer" hidden></div>
+          <div class="choices choices-3">
+            <button type="button" class="choice" data-result="drafted"><span><strong>Mostly written</strong><small>Rough drafts in most sections</small></span></button>
+            <button type="button" class="choice" data-result="started"><span><strong>Started, not finished</strong><small>Some pages, some blanks</small></span></button>
+            <button type="button" class="choice" data-result="zero"><span><strong>Haven't started</strong><small>It's a blank page</small></span></button>
+          </div>
+        </div>
+      </div>
+
+      <div class="node node-result" data-node="result" hidden aria-live="polite">
+        <div class="node-dot node-dot-end" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+        <div class="result" id="result"></div>
+      </div>
     </div>
-    <p class="paths-note">Not sure which one fits? That's what the call is for. Whitney will look at your site with you and tell you.</p>
+
+    <noscript><p class="lead">Live site? We move it over in the design you chose, with any updates you want. Not live yet? We edit your drafts, or write your copy, and launch it. Book a call with Whitney to talk through yours.</p></noscript>
+
+    <p class="paths-note">Not sure how to answer? That's what the call is for. Whitney will look at your site with you.</p>
   </div>
 </section>
+
+<template id="result-templates">
+  <div data-result="asis" data-visual="live" data-answer="Keep it as it is">
+    <p class="result-kicker">Your move</p><h3>A straight move</h3>
+    <p class="result-sub">We move your site over just as it is, in the same design. You barely have to lift a finger.</p>
+    <div class="split"><div><h4>You send</h4><ul class="inc-list"><li>Nothing, unless you'd like to</li></ul></div><div><h4>We handle</h4><ul class="inc-list"><li>Moving your copy, photos, and testimonials</li><li>Rebuilding it in your design</li><li>Setup, domain, and launch</li></ul></div></div>
+    <p class="result-meta"><strong>Timeline:</strong> about 3 to 4 weeks. <strong>Price:</strong> usually the simplest option.</p>
+  </div>
+  <div data-result="refresh" data-visual="live" data-answer="Update a few things">
+    <p class="result-kicker">Your move</p><h3>A move with a refresh</h3>
+    <p class="result-sub">We move everything over and work in your updates along the way.</p>
+    <div class="split"><div><h4>You send</h4><ul class="inc-list"><li>Only the changes you want</li><li>New photos, testimonials, or branding, if you have them</li></ul></div><div><h4>We handle</h4><ul class="inc-list"><li>Moving everything else over</li><li>Editing your new copy so it fits</li><li>Switching your design, if you'd like, at no extra charge</li><li>Setup, domain, and launch</li></ul></div></div>
+    <p class="result-meta"><strong>Timeline:</strong> about 3 to 5 weeks. <strong>Price:</strong> based on how much you're changing.</p>
+  </div>
+  <div data-result="newcopy" data-visual="live" data-answer="I want new copy">
+    <p class="result-kicker">Your move</p><h3>A move with new copy</h3>
+    <p class="result-sub">Same site, fresh words. We write new copy and launch it on the new platform.</p>
+    <div class="split"><div><h4>You send</h4><ul class="inc-list"><li>Answers about your practice and clients on the kickoff form</li></ul></div><div><h4>We handle</h4><ul class="inc-list"><li>Writing your new copy</li><li>An optional copy strategy call with Matt</li><li>Rebuilding your site with the new copy</li><li>Setup, domain, and launch</li></ul></div></div>
+    <p class="result-meta"><strong>Timeline:</strong> about 5 to 6 weeks. <strong>Price:</strong> copywriting is an add-on.</p>
+  </div>
+  <div data-result="drafted" data-visual="draft" data-answer="Mostly written">
+    <p class="result-kicker">Your move</p><h3>Finish and launch</h3>
+    <p class="result-sub">You've done most of the work. We polish it and get it live.</p>
+    <div class="split"><div><h4>You send</h4><ul class="inc-list"><li>Your copy drafts, however rough</li><li>Your logo, colors, and photos</li></ul></div><div><h4>We handle</h4><ul class="inc-list"><li>Editing your drafts into finished copy</li><li>Building every page in your design</li><li>Stock photos, booking calendar, and opt-in</li><li>Setup, domain, and launch</li></ul></div></div>
+    <p class="result-meta"><strong>Timeline:</strong> about 3 to 4 weeks. <strong>Price:</strong> copy editing is included.</p>
+  </div>
+  <div data-result="started" data-visual="draft" data-answer="Started, not finished">
+    <p class="result-kicker">Your move</p><h3>Fill the gaps, then launch</h3>
+    <p class="result-sub">You'll have a couple of weeks to fill in what's missing, and we take it from there.</p>
+    <div class="split"><div><h4>You send</h4><ul class="inc-list"><li>The copy you have, plus drafts for the blanks</li><li>Your logo, colors, and photos</li></ul></div><div><h4>We handle</h4><ul class="inc-list"><li>Editing everything into finished copy</li><li>Writing the rest instead, if you'd prefer</li><li>Building every page in your design</li><li>Setup, domain, and launch</li></ul></div></div>
+    <p class="result-meta"><strong>Timeline:</strong> about 4 to 5 weeks. <strong>Price:</strong> based on how much help you want with copy.</p>
+  </div>
+  <div data-result="zero" data-visual="draft" data-answer="Haven't started">
+    <p class="result-kicker">Your move</p><h3>We write it, then launch</h3>
+    <p class="result-sub">No blank page for you. We write your copy and build the whole site.</p>
+    <div class="split"><div><h4>You send</h4><ul class="inc-list"><li>Answers about your practice and clients on the kickoff form</li><li>Your logo, colors, and photos</li></ul></div><div><h4>We handle</h4><ul class="inc-list"><li>Writing your copy</li><li>An optional copy strategy call with Matt</li><li>Building every page in your design</li><li>Setup, domain, and launch</li></ul></div></div>
+    <p class="result-meta"><strong>Timeline:</strong> about 5 to 6 weeks. <strong>Price:</strong> copywriting is an add-on.</p>
+  </div>
+</template>
 
 <!-- THE DESIGNS -->
 <section class="g-white-aqua">
@@ -556,6 +662,65 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
   var items=[].slice.call(document.querySelectorAll('.tour-steps li'));
   function tick(){var t=v.currentTime,cur=0;items.forEach(function(li,i){if(t>=parseFloat(li.dataset.at))cur=i;});items.forEach(function(li,i){li.classList.toggle('on',i===cur);});}
   v.addEventListener('timeupdate',tick); tick();
+})();
+</script>
+<script>
+(function(){
+  var tree=document.getElementById('tree'); if(!tree) return;
+  var tpl=document.getElementById('result-templates');
+  var nodes={}; [].forEach.call(tree.querySelectorAll('.node'),function(n){nodes[n.dataset.node]=n;});
+  var resultBox=document.getElementById('result');
+  var visuals={
+    live:'<div class="result-visual" style="background:var(--t-classic)"><span class="path2-badge"><span class="path-dot" aria-hidden="true"></span>Live</span><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/design-one.jpg" alt="" /></div></div>',
+    draft:'<div class="result-visual" style="background:var(--t-bright)"><span class="path2-badge"><span class="path-dot empty" aria-hidden="true"></span>Draft</span><div class="browser is-draft"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/design-two.jpg" alt="" /></div></div>'
+  };
+  function reset(node){
+    node.classList.remove('is-done','is-last');
+    node.querySelector('.node-answer').hidden=true;
+  }
+  function hideFrom(keys){keys.forEach(function(k){var n=nodes[k]; n.hidden=true; if(n.querySelector('.node-answer')) reset(n);});}
+  function markDone(node,label){
+    node.classList.add('is-done');
+    var a=node.querySelector('.node-answer');
+    a.innerHTML='<span>'+label+'</span><button type="button">Change</button>';
+    a.hidden=false;
+    a.querySelector('button').addEventListener('click',function(){
+      if(node===nodes.start){hideFrom(['live','notlive','result']);}
+      else{hideFrom(['result']);}
+      reset(node); node.classList.add('is-last');
+      var first=node.querySelector('.choice'); if(first) first.focus();
+    });
+  }
+  function show(node){node.hidden=false; [].forEach.call(tree.querySelectorAll('.node'),function(n){n.classList.remove('is-last');}); node.classList.add('is-last');}
+  tree.addEventListener('click',function(e){
+    var c=e.target.closest('.choice'); if(!c) return;
+    var node=c.closest('.node');
+    var label=c.querySelector('strong').textContent;
+    if(c.dataset.next){
+      markDone(node,label); hideFrom(['live','notlive','result']);
+      show(nodes[c.dataset.next]);
+      nodes[c.dataset.next].querySelector('.choice').focus({preventScroll:true});
+      nodes[c.dataset.next].scrollIntoView({behavior:'smooth',block:'center'});
+    } else if(c.dataset.result){
+      markDone(node,label);
+      var src=tpl.content.querySelector('[data-result="'+c.dataset.result+'"]');
+      resultBox.innerHTML=visuals[src.dataset.visual]+'<div class="result-body">'+src.innerHTML+'<div class="result-actions"><a class="btn btn-p" href="#book-call">Book a call with Whitney</a><button type="button" class="restart">Start over</button></div></div>';
+      show(nodes.result);
+      resultBox.querySelector('.restart').addEventListener('click',function(){
+        hideFrom(['live','notlive','result']); reset(nodes.start); nodes.start.classList.add('is-last');
+        nodes.start.scrollIntoView({behavior:'smooth',block:'center'});
+        nodes.start.querySelector('.choice').focus({preventScroll:true});
+      });
+      nodes.result.scrollIntoView({behavior:'smooth',block:'nearest'});
+    }
+  });
+  nodes.start.classList.add('is-last');
+})();
+</script>
+<script>
+(function(){
+  var d=document.getElementById('tour-toggle'),v=document.getElementById('tour'); if(!d||!v) return;
+  d.addEventListener('toggle',function(){ if(d.open){ v.currentTime=0; var p=v.play(); if(p&&p.catch)p.catch(function(){}); } else { v.pause(); } });
 })();
 </script>
 </body>

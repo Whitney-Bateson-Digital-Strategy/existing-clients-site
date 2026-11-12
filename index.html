@@ -1,250 +1,428 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow">
-<title>Your website, on an easier platform | Whitney Bateson Digital Strategy</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Nunito:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Your website, on an easier platform · Whitney Bateson</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
 <style>
-body{margin:0}
-a{color:#02525d}a:hover{color:#013d46}
+/* Design tokens and type scale match the DFY Funnel sales page */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+:root{
+  --cream:#efeae3;
+  --soft:#faf7f3;
+  --hi:rgba(174,211,221,0.22);
+  --hi-md:rgba(174,211,221,0.48);
+  --navy:#02525d;
+  --navy-dk:#013d46;
+  --lime:#e3f696;
+  --text:#1a1a1a;
+  --muted:#5c5c5c;
+  --white:#ffffff;
+  --border:rgba(26,26,26,0.09);
+  --sh-sm:0 2px 12px rgba(0,0,0,0.055);
+  --sh-md:0 6px 32px rgba(0,0,0,0.08);
+  --head:'Playfair Display',Georgia,serif;
+  --body:'Open Sans',system-ui,sans-serif;
+  --mw:1240px;
+  /* design tints, one per website design */
+  --t-classic:#E1F0EB;
+  --t-bright:#F7E7E4;
+  --t-bold:#EFF5D6;
+  --t-soft:#EFE7F3
+}
+
+body{font-family:var(--body);background:var(--cream);color:var(--text);font-size:16px;line-height:1.7;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--head);line-height:1.22;font-weight:500}
+p{margin-bottom:16px}p:last-child{margin-bottom:0}
+a{color:var(--navy)}
+img{max-width:100%}
+.wrap{max-width:var(--mw);margin:0 auto;padding:0 36px}
+@media(max-width:640px){.wrap{padding:0 20px}}
+section{padding:80px 0}
+@media(max-width:640px){section{padding:52px 0}}
+.bg-soft{background:var(--soft)}
+.bg-cream{background:var(--cream)}
+.bt{border-top:1px solid var(--border)}
+
+/* shared type */
+.slabel{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:14px}
+.h2{font-size:clamp(1.5rem,3.5vw,2.15rem);line-height:1.25;color:var(--text);margin-bottom:14px;max-width:620px}
+.h2 em,.hero-h1 em{font-style:italic;color:var(--navy)}
+.lead{font-size:17px;color:var(--muted);line-height:1.65;max-width:580px;margin-bottom:0}
+.sec-head{margin-bottom:44px}
+.hl{background:linear-gradient(180deg,transparent 58%,var(--lime) 58%,var(--lime) 92%,transparent 92%);padding:0 4px}
+.tbd{background:var(--hi-md);color:var(--navy-dk);font-family:var(--body);font-style:normal;font-size:.9em;padding:1px 6px;border-radius:4px;font-weight:600}
+
+/* buttons */
+.btn{display:inline-block;font-family:var(--body);font-weight:600;text-decoration:none;border:none;border-radius:999px;cursor:pointer;transition:background .2s,transform .15s,box-shadow .2s;white-space:nowrap}
+.btn-p{background:var(--navy);color:var(--white);font-size:17px;padding:16px 38px}
+.btn-p:hover{background:var(--navy-dk);color:var(--white);transform:translateY(-1px);box-shadow:0 6px 24px rgba(2,82,93,.22)}
+
+/* nav */
+nav{position:sticky;top:0;z-index:100;background:var(--cream);border-bottom:1px solid var(--border);padding:14px 0}
+.nav-row{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.nav-logo{height:44px;width:auto;display:block}
+.nav-tag{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy)}
+@media(max-width:540px){.nav-tag{font-size:11px}}
+
+/* hero */
+#hero{padding:96px 0 80px;position:relative;overflow:hidden;background:var(--cream)}
+#hero::after{content:'';position:absolute;top:-100px;right:-140px;width:460px;height:460px;border-radius:50%;background:var(--hi);pointer-events:none;z-index:0}
+@media(max-width:768px){#hero{padding:60px 0 52px}#hero::after{display:none}}
+.hero-cols{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;position:relative;z-index:1}
+@media(max-width:860px){.hero-cols{grid-template-columns:1fr;gap:40px}}
+.hero-h1{font-size:clamp(2rem,4vw,2.75rem);margin-bottom:22px;color:var(--text)}
+.hero-sub{font-size:18px;color:var(--muted);margin-bottom:32px;line-height:1.62}
+.hero-visual{position:relative;padding-bottom:48px;padding-right:12%}
+.hero-visual .browser-sm{position:absolute;right:0;bottom:0;width:44%}
+
+/* browser frame */
+.browser{background:var(--white);border-radius:16px;overflow:hidden;box-shadow:var(--sh-md);border:1px solid var(--border)}
+.browser-bar{display:flex;gap:6px;padding:10px 12px;border-bottom:1px solid var(--border)}
+.browser-bar span{width:8px;height:8px;border-radius:50%;background:#d8d8d8}
+.browser img{display:block;width:100%;object-fit:cover;object-position:50% 0}
+
+/* cards */
+.card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:28px;box-shadow:var(--sh-sm)}
+.card h3{font-size:1.1rem;color:var(--text);margin-bottom:8px}
+.card p{font-size:16px;color:var(--muted);line-height:1.62;margin:0}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+@media(max-width:700px){.grid-2,.grid-3{grid-template-columns:1fr}}
+.step-num{font-size:13px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--navy);margin-bottom:10px;display:block}
+
+/* editor demo placeholder */
+.demo{margin-bottom:40px}
+.demo-slot{aspect-ratio:16/9;margin:14px;border:2px dashed rgba(2,82,93,0.4);border-radius:10px;display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;text-align:center;padding:24px;color:var(--navy)}
+.demo-slot strong{font-family:var(--head);font-weight:500;font-size:clamp(1.2rem,2.4vw,1.6rem);line-height:1.2}
+.demo-slot span{font-size:15px;color:var(--muted);max-width:520px}
+
+/* matt callout */
+.callout{display:flex;flex-wrap:wrap;gap:20px 24px;align-items:center;margin-top:40px;background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px 28px;box-shadow:var(--sh-sm)}
+.callout img{width:72px;height:72px;border-radius:50%;object-fit:cover;border:3px solid var(--hi-md);flex-shrink:0}
+.callout p{flex:1 1 300px;margin:0;font-family:var(--head);font-style:italic;font-size:clamp(1.1rem,2.2vw,1.3rem);line-height:1.45;color:var(--text)}
+
+/* two paths */
+.path{border-radius:20px;padding:40px 44px;display:flex;flex-direction:column;gap:18px;border:1px solid var(--border);box-shadow:var(--sh-sm)}
+@media(max-width:640px){.path{padding:28px 24px}}
+.path-live{background:var(--t-classic)}
+.path-notlive{background:var(--t-bright)}
+.path-pill{display:inline-flex;gap:8px;align-items:center;align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--navy);background:var(--white);padding:6px 14px;border-radius:999px}
+.path-dot{width:8px;height:8px;border-radius:50%;background:#2f8f5b}
+.path-dot.empty{background:transparent;border:2px solid var(--navy)}
+.path h3{font-size:1.3rem;color:var(--navy);line-height:1.25}
+.path .path-sub{font-size:17px;color:var(--muted);margin:0}
+.path-next{margin-top:auto;padding-top:18px;border-top:1px solid rgba(2,82,93,0.2);font-size:16px}
+
+/* check list */
+.inc-list{list-style:none;margin:0}
+.inc-list li{display:flex;align-items:flex-start;gap:13px;margin-bottom:11px;font-size:16px;color:var(--text);line-height:1.5}
+.inc-list li:last-child{margin-bottom:0}
+.inc-list li::before{content:'✓';color:var(--navy);font-weight:700;flex-shrink:0;margin-top:1px}
+.inc-list.cols{columns:2 300px;column-gap:40px}
+.inc-list.cols li{break-inside:avoid}
+.inc-list.cols li:last-child{margin-bottom:11px}
+
+/* designs */
+.designs{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+@media(max-width:760px){.designs{grid-template-columns:1fr}}
+.design{display:flex;flex-direction:column;gap:16px;text-decoration:none;color:var(--text);background:var(--white);border:1px solid var(--border);border-radius:18px;padding:20px 20px 24px;box-shadow:var(--sh-sm);transition:box-shadow .2s,transform .2s}
+.design:hover{box-shadow:var(--sh-md);transform:translateY(-2px)}
+.design-shot{border-radius:12px;padding:22px 22px 0;overflow:hidden}
+.design-shot .browser{border-radius:10px 10px 0 0;box-shadow:var(--sh-sm);border-bottom:none}
+.design-shot img{aspect-ratio:16/11}
+.design-meta{display:flex;flex-wrap:wrap;gap:6px 16px;align-items:baseline;justify-content:space-between;padding:0 4px}
+.design-name{font-family:var(--head);font-size:1.35rem;color:var(--text);line-height:1.2}
+.design-num{font-size:12px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--muted);margin-left:10px}
+.design-link{font-size:14px;font-weight:600;color:var(--navy);border-bottom:1.5px solid var(--navy);padding-bottom:2px}
+.design-desc{font-size:16px;color:var(--muted);margin:0;padding:0 4px}
+.note-sm{font-size:14px;color:var(--muted);font-style:italic;margin-top:20px}
+
+/* included */
+.p-box{background:var(--white);border:1px solid var(--border);border-radius:20px;box-shadow:var(--sh-md);padding:44px}
+@media(max-width:640px){.p-box{padding:28px 22px}}
+.p-divider{border:0;border-top:1px solid var(--border);margin:28px 0}
+.p-eyebrow{display:block;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--navy);margin-bottom:10px}
+.p-notes p{font-size:16px;color:var(--muted)}
+
+/* how it works */
+.steps-5{display:grid;grid-template-columns:repeat(5,1fr);gap:16px}
+@media(max-width:1000px){.steps-5{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:700px){.steps-5{grid-template-columns:1fr}}
+
+/* faq */
+.faq-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;max-width:1100px}
+@media(max-width:760px){.faq-list{grid-template-columns:1fr;max-width:700px}}
+.faq-item{border:1px solid var(--border);border-radius:12px;background:var(--white);overflow:hidden;align-self:start}
+.faq-q{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 26px;cursor:pointer;font-family:var(--head);font-size:1.03rem;font-weight:500;color:var(--text);list-style:none;user-select:none;transition:background .15s}
+.faq-q::-webkit-details-marker{display:none}
+.faq-q:hover{background:var(--soft)}
+.faq-q::after{content:'+';font-family:var(--body);font-size:22px;color:var(--navy);flex-shrink:0;transition:transform .25s;line-height:1}
+details[open] .faq-q::after{transform:rotate(45deg)}
+.faq-a{padding:18px 26px 22px;font-size:16px;color:var(--muted);line-height:1.68;border-top:1px solid var(--border)}
+
+/* close */
+#close{position:relative;overflow:hidden;text-align:center;padding:96px 0;border-top:1px solid var(--border)}
+#close video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#close .veil{position:absolute;inset:0;background:rgba(250,247,243,0.9)}
+#close .wrap{position:relative}
+#close h2{font-size:clamp(1.5rem,3.5vw,2.15rem);max-width:560px;margin:0 auto 14px}
+#close h2 em{font-style:italic;color:var(--navy)}
+#close .sub{font-size:17px;color:var(--muted);max-width:480px;margin:0 auto 28px}
+#close .sig{width:160px;height:auto;display:inline-block}
+
+footer{background:var(--cream);border-top:1px solid var(--border);padding:24px 0;text-align:center;font-size:14px;color:var(--muted)}
 </style>
 </head>
 <body>
-<div style="font-family: Nunito, system-ui, sans-serif; color: #242925; background: #ffffff; font-size: 17px; line-height: 1.7">
-<header style="background: #F7E7E4">
-<div style="max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px; padding-top: 18px; padding-bottom: 18px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between">
-<img src="assets/whitney-script-logo.png" alt="Whitney Bateson" style="height: 60px; width: auto">
-<div style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5a605c; color: #02525d">For Wellness Pro Website System clients</div>
-</div>
-</header>
 
-<!-- 01 HERO -->
-<section style="background: linear-gradient(180deg, #F7E7E4 0%, #ffffff 80%)">
-<div style="max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px; padding-top: 56px; padding-bottom: 0; display: flex; flex-direction: column; gap: 22px">
-<h1 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(50px, 8.2vw, 122px); line-height: 0.92; letter-spacing: -0.03em; color: #02525d">A website that's easier for you to update, <span style="font-style: italic; font-weight: 500">and easier for us to <span style="background: linear-gradient(transparent 66%, #e3f696 66%, #e3f696 92%, transparent 92%)">help with.</span></span></h1>
-<div style="display: flex; flex-wrap: wrap; gap: 40px 48px; align-items: flex-start">
-<div style="flex: 1 1 280px; max-width: 360px; display: flex; flex-direction: column; gap: 32px; padding-top: 34px">
-<p style="margin: 0; font-size: 20px; line-height: 1.6; color: #242925">You've already done the hard part. You chose your design and did the work. Now your site is moving to a more modern platform that's easier to edit, easier for us to support, and easier for people to find in search.</p>
-<div><a href="#options" style="display: inline-block; padding: 28px 52px; border-radius: 8px; background: #02525d; color: #ffffff; font-weight: 700; font-size: 17px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none">Find where you fit</a></div>
-</div>
-<div style="flex: 3 1 560px; min-width: 0; position: relative; margin-bottom: -80px; padding-right: clamp(0px, 7%, 90px)">
-<div style="background: #ffffff; box-shadow: 0 40px 80px -24px rgba(2,82,93,0.34); border-radius: 12px; overflow: hidden">
-<div aria-hidden="true" style="display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid rgba(2,82,93,0.12)"><span style="width: 8px; height: 8px; border-radius: 50%; background: #d8d8d8"></span><span style="width: 8px; height: 8px; border-radius: 50%; background: #d8d8d8"></span><span style="width: 8px; height: 8px; border-radius: 50%; background: #d8d8d8"></span></div>
-<img src="assets/design-one.jpg" alt="Design One, Classic, shown with sample content" style="display: block; width: 100%; aspect-ratio: 16 / 12; object-fit: cover; object-position: 50% 0">
-</div>
-<div style="position: absolute; right: 0; bottom: -56px; width: 42%"><div style="background: #ffffff; box-shadow: 0 30px 60px -18px rgba(2,82,93,0.4); border-radius: 12px; overflow: hidden">
-<div aria-hidden="true" style="display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid rgba(2,82,93,0.12)"><span style="width: 8px; height: 8px; border-radius: 50%; background: #d8d8d8"></span><span style="width: 8px; height: 8px; border-radius: 50%; background: #d8d8d8"></span><span style="width: 8px; height: 8px; border-radius: 50%; background: #d8d8d8"></span></div>
-<img src="assets/design-four.jpg" alt="Design Four, Soft, shown with sample content" style="display: block; width: 100%; aspect-ratio: 16 / 11; object-fit: cover; object-position: 50% 0">
-</div></div>
-</div>
-</div>
-</div>
+<nav>
+  <div class="wrap nav-row">
+    <img class="nav-logo" src="assets/whitney-script-logo.png" alt="Whitney Bateson" />
+    <span class="nav-tag">For Wellness Pro Website System clients</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="wrap hero-cols">
+    <div>
+      <h1 class="hero-h1">A website that's easier for you to update, <em>and easier for us to <span class="hl">help with.</span></em></h1>
+      <p class="hero-sub">You've already done the hard part. You chose your design and did the work. Now your site is moving to a more modern platform that's easier to edit, easier for us to support, and easier for people to find in search.</p>
+      <a class="btn btn-p" href="#options">Find where you fit</a>
+    </div>
+    <div class="hero-visual">
+      <div class="browser">
+        <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+        <img src="assets/design-one.jpg" alt="Design One, Classic, shown with sample content" style="aspect-ratio:16/12" />
+      </div>
+      <div class="browser browser-sm">
+        <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+        <img src="assets/design-four.jpg" alt="Design Four, Soft, shown with sample content" style="aspect-ratio:16/11" />
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- 02 WHAT'S DIFFERENT -->
-<section style="background: #ffffff">
-<div style="max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px; padding-top: 200px; padding-bottom: 130px; display: flex; flex-direction: column; gap: 64px">
-<div style="display: flex; flex-direction: column; gap: 22px; max-width: 980px">
-<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(48px, 7.4vw, 110px); line-height: 0.92; letter-spacing: -0.025em; color: #02525d">Want to change something? <span style="font-style: italic; font-weight: 500">Go right ahead.</span></h2>
-<p style="margin: 0; max-width: 640px; font-size: 19px; color: #242925">Update your text, photos, and everyday website content without sending us a request. There's no new software to learn, and the layout stays put.</p>
-</div>
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 44px 64px">
-<div style="display: flex; flex-direction: column; gap: 10px; border-top: 1.5px solid #02525d; padding-top: 22px"><div style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5a605c">Support</div><h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 36px; line-height: 1.05; color: #02525d">We're here when you need us.</h3><p style="margin: 0; color: #242925">Short on time, or not sure how? Send us a message and we'll make the change for you. [TBD: how many edits your plan includes]</p></div>
-<div style="display: flex; flex-direction: column; gap: 10px; border-top: 1.5px solid #02525d; padding-top: 22px"><div style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5a605c">Search</div><h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 36px; line-height: 1.05; color: #02525d">Easier to find.</h3><p style="margin: 0; color: #242925">A faster, cleaner site gives your practice a stronger starting point in search. More on that below.</p></div>
-</div>
-</div>
+<!-- WHAT'S DIFFERENT -->
+<section class="bg-soft bt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="slabel">What's different</span>
+      <h2 class="h2">Want to change something? <em>Go right ahead.</em></h2>
+      <p class="lead">Update your text, photos, and everyday website content without sending us a request. There's no new software to learn, and the layout stays put.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <span class="step-num">Support</span>
+        <h3>We're here when you need us.</h3>
+        <p>Short on time, or not sure how? Send us a message and we'll make the change for you. <span class="tbd">[TBD: how many edits your plan includes]</span></p>
+      </div>
+      <div class="card">
+        <span class="step-num">Search</span>
+        <h3>Easier to find.</h3>
+        <p>A faster, cleaner site gives your practice a stronger starting point in search. More on that below.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- 03 THE EDITOR -->
-<section id="try" style="background: linear-gradient(180deg, #EFF5D6 0%, #ffffff 96%)">
-<div style="max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px; padding-top: 130px; padding-bottom: 130px; display: flex; flex-direction: column; gap: 56px">
-<div style="display: flex; flex-direction: column; gap: 22px; max-width: 860px">
-<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(40px, 5.6vw, 80px); line-height: 0.98; letter-spacing: -0.015em; color: #02525d; text-wrap: balance">Yes, you really can change it <span style="font-style: italic; font-weight: 500">yourself.</span></h2>
-<p style="margin: 0; font-size: 19px; max-width: 640px; color: #242925">New headshot? Updated services? Want to rewrite your homepage introduction? Make the change and get back to your day. Here's what that looks like.</p>
-</div>
-<div style="background: #ffffff; border-radius: 14px; box-shadow: 0 50px 90px -30px rgba(2,82,93,0.4); overflow: hidden">
-<div aria-hidden="true" style="display: flex; gap: 6px; padding: 12px 14px; border-bottom: 1px solid rgba(2,82,93,0.12)"><span style="width: 9px; height: 9px; border-radius: 50%; background: #d8d8d8"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #d8d8d8"></span><span style="width: 9px; height: 9px; border-radius: 50%; background: #d8d8d8"></span></div>
-<div style="aspect-ratio: 16 / 9; margin: 14px; border: 2px dashed rgba(2,82,93,0.45); border-radius: 8px; display: flex; flex-direction: column; gap: 10px; align-items: center; justify-content: center; text-align: center; padding: 24px; box-sizing: border-box; color: #02525d">
-<div style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(26px, 3vw, 40px); line-height: 1.1">[SCREEN RECORDING GOES HERE]</div>
-<div style="font-size: 16px; max-width: 520px; color: #242925">A real edit in the real editor: 15 to 20 seconds, silent, on a loop. Click the headline, type the new one, save, and show the page updated.</div>
-</div>
-</div>
-<div style="display: flex; flex-wrap: wrap; gap: 36px">
-<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 8px; border-top: 1.5px solid #02525d; padding-top: 18px"><h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px; line-height: 1.05; color: #02525d">Click</h3><p style="margin: 0; color: #242925">Open the page and click the words you'd like to change.</p></div>
-<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 8px; border-top: 1.5px solid #02525d; padding-top: 18px"><h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px; line-height: 1.05; color: #02525d">Type</h3><p style="margin: 0; color: #242925">Write the new version. The fonts, colors, and layout stay exactly as they are.</p></div>
-<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 8px; border-top: 1.5px solid #02525d; padding-top: 18px"><h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 30px; line-height: 1.05; color: #02525d">Save</h3><p style="margin: 0; color: #242925">Your site updates. That's the whole job.</p></div>
-</div>
-</div>
+<!-- THE EDITOR -->
+<section id="try" class="bg-cream">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="slabel">The editor</span>
+      <h2 class="h2">Yes, you really can change it <em>yourself.</em></h2>
+      <p class="lead">New headshot? Updated services? Want to rewrite your homepage introduction? Make the change and get back to your day. Here's what that looks like.</p>
+    </div>
+    <div class="browser demo">
+      <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+      <div class="demo-slot">
+        <strong>[SCREEN RECORDING GOES HERE]</strong>
+        <span>A real edit in the real editor: 15 to 20 seconds, silent, on a loop. Click the headline, type the new one, save, and show the page updated.</span>
+      </div>
+    </div>
+    <div class="grid-3">
+      <div class="card"><span class="step-num">Step 1</span><h3>Click</h3><p>Open the page and click the words you'd like to change.</p></div>
+      <div class="card"><span class="step-num">Step 2</span><h3>Type</h3><p>Write the new version. The fonts, colors, and layout stay exactly as they are.</p></div>
+      <div class="card"><span class="step-num">Step 3</span><h3>Save</h3><p>Your site updates. That's the whole job.</p></div>
+    </div>
+  </div>
 </section>
 
-<!-- 03b SEARCH -->
-<section style="background: #ffffff">
-<div style="max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px; padding-top: 30px; padding-bottom: 150px; display: flex; flex-direction: column; gap: 64px">
-<div style="display: flex; flex-direction: column; gap: 22px; max-width: 860px">
-<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(52px, 8.6vw, 128px); line-height: 0.9; letter-spacing: -0.03em; color: #02525d">Built to be <span style="font-style: italic; font-weight: 500"><span style="background: linear-gradient(transparent 66%, #e3f696 66%, #e3f696 92%, transparent 92%)">found.</span></span></h2>
-<p style="margin: 0; font-size: 19px; max-width: 640px; color: #242925">When someone searches for the kind of help you offer, your website is what answers. The new platform gives it a much better chance of showing up.</p>
-</div>
-<div style="display: flex; flex-wrap: wrap; gap: 40px 36px">
-<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 10px; border-top: 1.5px solid #02525d; padding-top: 20px"><h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 34px; line-height: 1.05; color: #02525d">Faster pages</h3><p style="margin: 0; color: #242925">Your site loads quickly on phones and laptops. Visitors stay, and search engines notice.</p></div>
-<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 10px; border-top: 1.5px solid #02525d; padding-top: 20px"><h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 34px; line-height: 1.05; color: #02525d">Cleaner under the hood</h3><p style="margin: 0; color: #242925">Pages are built so Google and AI search tools can read them easily, with no plugins getting in the way.</p></div>
-<div style="flex: 1 1 240px; display: flex; flex-direction: column; gap: 10px; border-top: 1.5px solid #02525d; padding-top: 20px"><h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 34px; line-height: 1.05; color: #02525d">Ready for more</h3><p style="margin: 0; color: #242925">When you want to go further, Matt can plan the search terms behind your pages and help you turn what you know into content people are looking for.</p></div>
-</div>
-<div style="display: flex; flex-wrap: wrap; gap: 20px 28px; align-items: center">
-<img src="assets/matt.jpg" alt="Matt Kuncaitis" style="width: 84px; height: 84px; border-radius: 12px; object-fit: cover">
-<p style="margin: 0; flex: 1 1 320px; max-width: 640px; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500; font-size: 26px; line-height: 1.25; color: #02525d">Curious where your site stands today? Ask us about a free SEO review with Matt. [CONFIRM: offer and link]</p>
-</div>
-</div>
+<!-- SEARCH -->
+<section class="bg-soft bt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="slabel">Search</span>
+      <h2 class="h2">Built to be <em><span class="hl">found.</span></em></h2>
+      <p class="lead">When someone searches for the kind of help you offer, your website is what answers. The new platform gives it a much better chance of showing up.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card"><h3>Faster pages</h3><p>Your site loads quickly on phones and laptops. Visitors stay, and search engines notice.</p></div>
+      <div class="card"><h3>Cleaner under the hood</h3><p>Pages are built so Google and AI search tools can read them easily, with no plugins getting in the way.</p></div>
+      <div class="card"><h3>Ready for more</h3><p>When you want to go further, Matt can plan the search terms behind your pages and help you turn what you know into content people are looking for.</p></div>
+    </div>
+    <div class="callout">
+      <img src="assets/matt.jpg" alt="Matt Kuncaitis" />
+      <p>Curious where your site stands today? Ask us about a free SEO review with Matt. <span class="tbd">[CONFIRM: offer and link]</span></p>
+    </div>
+  </div>
 </section>
 
-<!-- 04 TWO PATHS -->
-<section id="options" style="background: #ffffff">
-<div style="max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px; padding-top: 40px; padding-bottom: 150px; display: flex; flex-direction: column; gap: 56px">
-<div style="display: flex; flex-direction: column; gap: 22px; max-width: 860px">
-<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(40px, 5.6vw, 80px); line-height: 0.98; letter-spacing: -0.015em; color: #02525d; text-wrap: balance">Where is your site <span style="font-style: italic; font-weight: 500">right now?</span></h2>
-<p style="margin: 0; font-size: 19px; max-width: 640px; color: #242925">Two starting points, one destination: a site on the new platform that you can update yourself.</p>
-</div>
-<div style="display: flex; flex-wrap: wrap; gap: 28px; align-items: stretch">
-<div style="flex: 1 1 420px; background: #E1F0EB; border-radius: 20px; padding: clamp(32px, 4.4vw, 60px); display: flex; flex-direction: column; gap: 22px">
-<div style="display: inline-flex; gap: 10px; align-items: center; align-self: flex-start; padding: 9px 16px; border-radius: 999px; background: #ffffff; font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5a605c; color: #02525d"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; background: #2f8f5b"></span>My site is live</div>
-<h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(40px, 4.6vw, 62px); line-height: 0.98; letter-spacing: -0.015em; color: #02525d">We move it over for you.</h3>
-<p style="margin: 0; font-size: 19px; color: #242925; min-height: 2.9em">Your current site, rebuilt on the new platform.</p>
-<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; color: #242925"><li style="display: flex; gap: 12px; align-items: flex-start"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="#02525d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 18px; margin-top: 6px"><path d="M4 11.5l4.5 4.5L18 6.5"></path></svg><span>Your content comes with you [CONFIRM]</span></li><li style="display: flex; gap: 12px; align-items: flex-start"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="#02525d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 18px; margin-top: 6px"><path d="M4 11.5l4.5 4.5L18 6.5"></path></svg><span>Same design you chose</span></li><li style="display: flex; gap: 12px; align-items: flex-start"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="#02525d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 18px; margin-top: 6px"><path d="M4 11.5l4.5 4.5L18 6.5"></path></svg><span>Refresh your copy or brand if you'd like</span></li></ul>
-<p style="margin: 0; margin-top: auto; padding-top: 18px; border-top: 1px solid rgba(2,82,93,0.22); color: #242925"><strong>Your next step:</strong> [CONFIRM: next step and cost]</p>
-</div>
-<div style="flex: 1 1 420px; background: #F7E7E4; border-radius: 20px; padding: clamp(32px, 4.4vw, 60px); display: flex; flex-direction: column; gap: 22px">
-<div style="display: inline-flex; gap: 10px; align-items: center; align-self: flex-start; padding: 9px 16px; border-radius: 999px; background: #ffffff; font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5a605c; color: #02525d"><span aria-hidden="true" style="width: 10px; height: 10px; border-radius: 50%; border: 2px solid #02525d; box-sizing: border-box"></span>My site isn't live yet</div>
-<h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(40px, 4.6vw, 62px); line-height: 0.98; letter-spacing: -0.015em; color: #02525d">We finish it and launch it.</h3>
-<p style="margin: 0; font-size: 19px; color: #242925; min-height: 2.9em">We pick up wherever you stopped.</p>
-<ul style="margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; color: #242925"><li style="display: flex; gap: 12px; align-items: flex-start"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="#02525d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 18px; margin-top: 6px"><path d="M4 11.5l4.5 4.5L18 6.5"></path></svg><span>Send the copy you have</span></li><li style="display: flex; gap: 12px; align-items: flex-start"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="#02525d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 18px; margin-top: 6px"><path d="M4 11.5l4.5 4.5L18 6.5"></path></svg><span>We add your brand and photos</span></li><li style="display: flex; gap: 12px; align-items: flex-start"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="#02525d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 18px; margin-top: 6px"><path d="M4 11.5l4.5 4.5L18 6.5"></path></svg><span>Launches in the design you already chose</span></li></ul>
-<p style="margin: 0; margin-top: auto; padding-top: 18px; border-top: 1px solid rgba(2,82,93,0.22); color: #242925"><strong>Your next step:</strong> [CONFIRM: next step and cost]</p>
-</div>
-</div>
-</div>
+<!-- TWO PATHS -->
+<section id="options" class="bg-cream">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="slabel">Your options</span>
+      <h2 class="h2">Where is your site <em>right now?</em></h2>
+      <p class="lead">Two starting points, one destination: a site on the new platform that you can update yourself.</p>
+    </div>
+    <div class="grid-2">
+      <div class="path path-live">
+        <span class="path-pill"><span class="path-dot" aria-hidden="true"></span>My site is live</span>
+        <h3>We move it over for you.</h3>
+        <p class="path-sub">Your current site, rebuilt on the new platform.</p>
+        <ul class="inc-list">
+          <li><span>Your content comes with you <span class="tbd">[CONFIRM]</span></span></li>
+          <li>Same design you chose</li>
+          <li>Refresh your copy or brand if you'd like</li>
+        </ul>
+        <p class="path-next"><strong>Your next step:</strong> <span class="tbd">[CONFIRM: next step and cost]</span></p>
+      </div>
+      <div class="path path-notlive">
+        <span class="path-pill"><span class="path-dot empty" aria-hidden="true"></span>My site isn't live yet</span>
+        <h3>We finish it and launch it.</h3>
+        <p class="path-sub">We pick up wherever you stopped.</p>
+        <ul class="inc-list">
+          <li>Send the copy you have</li>
+          <li>We add your brand and photos</li>
+          <li>Launches in the design you already chose</li>
+        </ul>
+        <p class="path-next"><strong>Your next step:</strong> <span class="tbd">[CONFIRM: next step and cost]</span></p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- 05 THE DESIGNS -->
-<section style="background: #ffffff">
-<div style="max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px; padding-top: 0; padding-bottom: 150px; display: flex; flex-direction: column; gap: 64px">
-<div style="display: flex; flex-direction: column; gap: 22px; max-width: 860px">
-<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(40px, 5.6vw, 80px); line-height: 0.98; letter-spacing: -0.015em; color: #02525d; text-wrap: balance">Your design <span style="font-style: italic; font-weight: 500">comes with you.</span></h2>
-<p style="margin: 0; font-size: 19px; max-width: 640px; color: #242925">You already chose your look, and nothing about that changes. Here are the four designs as a reminder of which one is yours.</p>
-</div>
-<div style="display: flex; flex-wrap: wrap; gap: 64px 40px; align-items: flex-start">
-<div style="flex: 1.25 1 440px; min-width: 0; display: flex; flex-direction: column; gap: 72px">
-<a href="https://template.whitneybateson.com/" style="display: flex; flex-direction: column; gap: 18px; margin-top: 0px; text-decoration: none; color: #242925">
-<div style="background: #E1F0EB; border-radius: 20px; padding: clamp(20px, 3.4vw, 46px) clamp(18px, 3.4vw, 46px) 0; overflow: hidden"><div style="background: #ffffff; box-shadow: 0 30px 60px -22px rgba(2,82,93,0.34); border-radius: 12px 12px 0 0; overflow: hidden">
-<div aria-hidden="true" style="display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid rgba(2,82,93,0.12)"><span style="width: 8px; height: 8px; border-radius: 50%; background: #d8d8d8"></span><span style="width: 8px; height: 8px; border-radius: 50%; background: #d8d8d8"></span><span style="width: 8px; height: 8px; border-radius: 50%; background: #d8d8d8"></span></div>
-<img src="assets/design-one.jpg" alt="Design One, Classic, shown with sample content" style="display: block; width: 100%; aspect-ratio: 16 / 13; object-fit: cover; object-position: 50% 0">
-</div></div>
-<div style="display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: baseline; justify-content: space-between">
-<div style="display: flex; gap: 16px; align-items: baseline"><span style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(38px, 4vw, 54px); line-height: 1; letter-spacing: -0.015em; color: #02525d">Classic</span><span style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5a605c">Design One</span></div>
-<span style="display: inline-flex; gap: 8px; align-items: center; font-weight: 700; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #02525d; border-bottom: 1.5px solid #02525d; padding-bottom: 3px">View live demo <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#02525d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11L11 3M5 3h6v6"></path></svg></span>
-</div>
-<p style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500; font-size: 24px; line-height: 1.2">Clean, timeless, and versatile.</p>
-</a>
-<a href="https://template03.whitneybateson.com/" style="display: flex; flex-direction: column; gap: 18px; margin-top: 0px; text-decoration: none; color: #242925">
-<div style="background: #EFF5D6; border-radius: 20px; padding: clamp(20px, 3.4vw, 46px) clamp(18px, 3.4vw, 46px) 0; overflow: hidden"><div style="background: #ffffff; box-shadow: 0 30px 60px -22px rgba(2,82,93,0.34); border-radius: 12px 12px 0 0; overflow: hidden">
-<div aria-hidden="true" style="display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid rgba(2,82,93,0.12)"><span style="width: 8px; height: 8px; border-radius: 50%; background: #d8d8d8"></span><span style="width: 8px; height: 8px; border-radius: 50%; background: #d8d8d8"></span><span style="width: 8px; height: 8px; border-radius: 50%; background: #d8d8d8"></span></div>
-<img src="assets/design-three.jpg" alt="Design Three, Bold, shown with sample content" style="display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: 50% 0">
-</div></div>
-<div style="display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: baseline; justify-content: space-between">
-<div style="display: flex; gap: 16px; align-items: baseline"><span style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(38px, 4vw, 54px); line-height: 1; letter-spacing: -0.015em; color: #02525d">Bold</span><span style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5a605c">Design Three</span></div>
-<span style="display: inline-flex; gap: 8px; align-items: center; font-weight: 700; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #02525d; border-bottom: 1.5px solid #02525d; padding-bottom: 3px">View live demo <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#02525d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11L11 3M5 3h6v6"></path></svg></span>
-</div>
-<p style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500; font-size: 24px; line-height: 1.2">Rich color and a confident presence.</p>
-</a>
-</div>
-<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 72px">
-<a href="https://template02.whitneybateson.com/" style="display: flex; flex-direction: column; gap: 18px; margin-top: 110px; text-decoration: none; color: #242925">
-<div style="background: #F7E7E4; border-radius: 20px; padding: clamp(20px, 3.4vw, 46px) clamp(18px, 3.4vw, 46px) 0; overflow: hidden"><div style="background: #ffffff; box-shadow: 0 30px 60px -22px rgba(2,82,93,0.34); border-radius: 12px 12px 0 0; overflow: hidden">
-<div aria-hidden="true" style="display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid rgba(2,82,93,0.12)"><span style="width: 8px; height: 8px; border-radius: 50%; background: #d8d8d8"></span><span style="width: 8px; height: 8px; border-radius: 50%; background: #d8d8d8"></span><span style="width: 8px; height: 8px; border-radius: 50%; background: #d8d8d8"></span></div>
-<img src="assets/design-two.jpg" alt="Design Two, Bright, shown with sample content" style="display: block; width: 100%; aspect-ratio: 16 / 10.5; object-fit: cover; object-position: 50% 0">
-</div></div>
-<div style="display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: baseline; justify-content: space-between">
-<div style="display: flex; gap: 16px; align-items: baseline"><span style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(38px, 4vw, 54px); line-height: 1; letter-spacing: -0.015em; color: #02525d">Bright</span><span style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5a605c">Design Two</span></div>
-<span style="display: inline-flex; gap: 8px; align-items: center; font-weight: 700; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #02525d; border-bottom: 1.5px solid #02525d; padding-bottom: 3px">View live demo <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#02525d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11L11 3M5 3h6v6"></path></svg></span>
-</div>
-<p style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500; font-size: 24px; line-height: 1.2">Colorful and full of personality.</p>
-</a>
-<a href="https://template04.whitneybateson.com/" style="display: flex; flex-direction: column; gap: 18px; margin-top: 0px; text-decoration: none; color: #242925">
-<div style="background: #EFE7F3; border-radius: 20px; padding: clamp(20px, 3.4vw, 46px) clamp(18px, 3.4vw, 46px) 0; overflow: hidden"><div style="background: #ffffff; box-shadow: 0 30px 60px -22px rgba(2,82,93,0.34); border-radius: 12px 12px 0 0; overflow: hidden">
-<div aria-hidden="true" style="display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid rgba(2,82,93,0.12)"><span style="width: 8px; height: 8px; border-radius: 50%; background: #d8d8d8"></span><span style="width: 8px; height: 8px; border-radius: 50%; background: #d8d8d8"></span><span style="width: 8px; height: 8px; border-radius: 50%; background: #d8d8d8"></span></div>
-<img src="assets/design-four.jpg" alt="Design Four, Soft, shown with sample content" style="display: block; width: 100%; aspect-ratio: 16 / 13; object-fit: cover; object-position: 50% 0">
-</div></div>
-<div style="display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: baseline; justify-content: space-between">
-<div style="display: flex; gap: 16px; align-items: baseline"><span style="font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(38px, 4vw, 54px); line-height: 1; letter-spacing: -0.015em; color: #02525d">Soft</span><span style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5a605c">Design Four</span></div>
-<span style="display: inline-flex; gap: 8px; align-items: center; font-weight: 700; font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase; color: #02525d; border-bottom: 1.5px solid #02525d; padding-bottom: 3px">View live demo <svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#02525d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11L11 3M5 3h6v6"></path></svg></span>
-</div>
-<p style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500; font-size: 24px; line-height: 1.2">Gentle, inviting, and warm.</p>
-</a>
-</div>
-</div>
-<p style="margin: 0; font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5a605c">Shown with sample content</p>
-</div>
+<!-- THE DESIGNS -->
+<section class="bg-soft bt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="slabel">The designs</span>
+      <h2 class="h2">Your design <em>comes with you.</em></h2>
+      <p class="lead">You already chose your look, and nothing about that changes. Here are the four designs as a reminder of which one is yours.</p>
+    </div>
+    <div class="designs">
+      <a class="design" href="https://template.whitneybateson.com/">
+        <div class="design-shot" style="background:var(--t-classic)"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/design-one.jpg" alt="Design One, Classic, shown with sample content" /></div></div>
+        <div class="design-meta"><span><span class="design-name">Classic</span><span class="design-num">Design One</span></span><span class="design-link">View live demo ↗</span></div>
+        <p class="design-desc">Clean, timeless, and versatile.</p>
+      </a>
+      <a class="design" href="https://template02.whitneybateson.com/">
+        <div class="design-shot" style="background:var(--t-bright)"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/design-two.jpg" alt="Design Two, Bright, shown with sample content" /></div></div>
+        <div class="design-meta"><span><span class="design-name">Bright</span><span class="design-num">Design Two</span></span><span class="design-link">View live demo ↗</span></div>
+        <p class="design-desc">Colorful and full of personality.</p>
+      </a>
+      <a class="design" href="https://template03.whitneybateson.com/">
+        <div class="design-shot" style="background:var(--t-bold)"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/design-three.jpg" alt="Design Three, Bold, shown with sample content" /></div></div>
+        <div class="design-meta"><span><span class="design-name">Bold</span><span class="design-num">Design Three</span></span><span class="design-link">View live demo ↗</span></div>
+        <p class="design-desc">Rich color and a confident presence.</p>
+      </a>
+      <a class="design" href="https://template04.whitneybateson.com/">
+        <div class="design-shot" style="background:var(--t-soft)"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/design-four.jpg" alt="Design Four, Soft, shown with sample content" /></div></div>
+        <div class="design-meta"><span><span class="design-name">Soft</span><span class="design-num">Design Four</span></span><span class="design-link">View live demo ↗</span></div>
+        <p class="design-desc">Gentle, inviting, and warm.</p>
+      </a>
+    </div>
+    <p class="note-sm">Shown with sample content.</p>
+  </div>
 </section>
 
-<!-- 06 WHAT YOU GET -->
-<section style="background: #ffffff">
-<div style="max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px; padding-top: 0; padding-bottom: 150px">
-<div style="border-top: 1.5px solid #02525d; padding-top: 22px; display: flex; flex-wrap: wrap; gap: 40px 88px; align-items: flex-start">
-<div style="flex: 1 1 100%; font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5a605c; margin-bottom: 6px">What you're getting</div>
-<div style="flex: 1 1 100%; display: flex; flex-direction: column; gap: 36px">
-<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(40px, 5.6vw, 80px); line-height: 0.98; letter-spacing: -0.015em; color: #02525d; text-wrap: balance">What the move <span style="font-style: italic; font-weight: 500">includes</span></h2>
-<ul style="margin: 0; padding: 0; list-style: none; columns: 3 260px; column-gap: 48px; color: #242925"><li style="display: flex; gap: 12px; align-items: flex-start; break-inside: avoid; margin-bottom: 16px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="#02525d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 18px; margin-top: 6px"><path d="M4 11.5l4.5 4.5L18 6.5"></path></svg><span>Your site rebuilt on the new platform, in the design you chose</span></li><li style="display: flex; gap: 12px; align-items: flex-start; break-inside: avoid; margin-bottom: 16px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="#02525d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 18px; margin-top: 6px"><path d="M4 11.5l4.5 4.5L18 6.5"></path></svg><span>The copy, photos, and brand you've already given us, carried over</span></li><li style="display: flex; gap: 12px; align-items: flex-start; break-inside: avoid; margin-bottom: 16px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="#02525d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 18px; margin-top: 6px"><path d="M4 11.5l4.5 4.5L18 6.5"></path></svg><span>Your own login, so you can change text and photos whenever you like</span></li><li style="display: flex; gap: 12px; align-items: flex-start; break-inside: avoid; margin-bottom: 16px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="#02525d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 18px; margin-top: 6px"><path d="M4 11.5l4.5 4.5L18 6.5"></path></svg><span>A short video showing you how to make an edit or add a blog post</span></li><li style="display: flex; gap: 12px; align-items: flex-start; break-inside: avoid; margin-bottom: 16px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="#02525d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 18px; margin-top: 6px"><path d="M4 11.5l4.5 4.5L18 6.5"></path></svg><span>A faster site that's easier to find in search</span></li><li style="display: flex; gap: 12px; align-items: flex-start; break-inside: avoid; margin-bottom: 16px"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 22 22" fill="none" stroke="#02525d" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex: 0 0 18px; margin-top: 6px"><path d="M4 11.5l4.5 4.5L18 6.5"></path></svg><span>Edits from our team through your monthly plan [TBD: how many revisions and additions]</span></li></ul>
-</div>
-<div style="flex: 1 1 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(min(340px, 100%), 1fr)); gap: 36px 64px; border-top: 1px solid rgba(2,82,93,0.22); padding-top: 32px">
-<div style="display: flex; flex-direction: column; gap: 10px"><div style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5a605c">Need more?</div><p style="margin: 0; color: #242925">We can also write your copy, build an SEO strategy with Matt, refresh your brand [CONFIRM], or add services and pages.</p></div>
-<div style="display: flex; flex-direction: column; gap: 10px"><div style="font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5a605c">What it costs</div><p style="margin: 0; color: #242925">It depends on where your site is today and what you need. We'll go through it together on our call.</p></div>
-</div>
-</div>
-</div>
+<!-- WHAT YOU GET -->
+<section class="bg-cream">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="slabel">What you're getting</span>
+      <h2 class="h2">What the move <em>includes</em></h2>
+    </div>
+    <div class="p-box">
+      <ul class="inc-list cols">
+        <li>Your site rebuilt on the new platform, in the design you chose</li>
+        <li>The copy, photos, and brand you've already given us, carried over</li>
+        <li>Your own login, so you can change text and photos whenever you like</li>
+        <li>A short video showing you how to make an edit or add a blog post</li>
+        <li>A faster site that's easier to find in search</li>
+        <li><span>Edits from our team through your monthly plan <span class="tbd">[TBD: how many revisions and additions]</span></span></li>
+      </ul>
+      <hr class="p-divider" />
+      <div class="grid-2 p-notes">
+        <div><span class="p-eyebrow">Need more?</span><p>We can also write your copy, build an SEO strategy with Matt, refresh your brand <span class="tbd">[CONFIRM]</span>, or add services and pages.</p></div>
+        <div><span class="p-eyebrow">What it costs</span><p>It depends on where your site is today and what you need. We'll go through it together on our call.</p></div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- 07 HOW IT WORKS -->
-<section style="background: #ffffff">
-<div style="max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px; padding-top: 0; padding-bottom: 150px; display: flex; flex-direction: column; gap: 64px">
-<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(40px, 5.6vw, 80px); line-height: 0.98; letter-spacing: -0.015em; color: #02525d; text-wrap: balance">How it <span style="font-style: italic; font-weight: 500">works</span></h2>
-<div style="display: flex; flex-wrap: wrap; gap: 56px 36px; align-items: flex-start">
-<div style="flex: 1 1 190px; display: flex; flex-direction: column; gap: 18px"><div aria-hidden="true" style="font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500; font-size: clamp(72px, 8vw, 116px); line-height: 0.8; color: #02525d">1</div><h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(34px, 3.4vw, 46px); line-height: 1; letter-spacing: -0.01em; color: #02525d">We talk</h3><p style="margin: 0; font-size: 17px; line-height: 1.65; color: #242925">We look at where your site is today and what you'd like it to become.</p></div>
-<div style="flex: 1 1 190px; display: flex; flex-direction: column; gap: 18px"><div aria-hidden="true" style="font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500; font-size: clamp(72px, 8vw, 116px); line-height: 0.8; color: #02525d">2</div><h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(34px, 3.4vw, 46px); line-height: 1; letter-spacing: -0.01em; color: #02525d">You send</h3><p style="margin: 0; font-size: 17px; line-height: 1.65; color: #242925">Anything that's changed since you started, plus whatever we don't have yet.</p></div>
-<div style="flex: 1 1 190px; display: flex; flex-direction: column; gap: 18px"><div aria-hidden="true" style="font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500; font-size: clamp(72px, 8vw, 116px); line-height: 0.8; color: #02525d">3</div><h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(34px, 3.4vw, 46px); line-height: 1; letter-spacing: -0.01em; color: #02525d">We build</h3><p style="margin: 0; font-size: 17px; line-height: 1.65; color: #242925">Your site comes together, and you get a roadmap with dates.</p></div>
-<div style="flex: 1 1 190px; display: flex; flex-direction: column; gap: 18px"><div aria-hidden="true" style="font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500; font-size: clamp(72px, 8vw, 116px); line-height: 0.8; color: #02525d">4</div><h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(34px, 3.4vw, 46px); line-height: 1; letter-spacing: -0.01em; color: #02525d">You review</h3><p style="margin: 0; font-size: 17px; line-height: 1.65; color: #242925">Look over a private preview and send feedback in one place.</p></div>
-<div style="flex: 1 1 190px; display: flex; flex-direction: column; gap: 18px"><div aria-hidden="true" style="font-family: 'Cormorant Garamond', Georgia, serif; font-style: italic; font-weight: 500; font-size: clamp(72px, 8vw, 116px); line-height: 0.8; color: #02525d">5</div><h3 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(34px, 3.4vw, 46px); line-height: 1; letter-spacing: -0.01em; color: #02525d">We launch</h3><p style="margin: 0; font-size: 17px; line-height: 1.65; color: #242925">Your site goes live, and your walkthrough video lands in your inbox.</p></div>
-</div>
-</div>
+<!-- HOW IT WORKS -->
+<section class="bg-soft bt">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="slabel">The process</span>
+      <h2 class="h2">How it <em>works</em></h2>
+    </div>
+    <div class="steps-5">
+      <div class="card"><span class="step-num">Step 1</span><h3>We talk</h3><p>We look at where your site is today and what you'd like it to become.</p></div>
+      <div class="card"><span class="step-num">Step 2</span><h3>You send</h3><p>Anything that's changed since you started, plus whatever we don't have yet.</p></div>
+      <div class="card"><span class="step-num">Step 3</span><h3>We build</h3><p>Your site comes together, and you get a roadmap with dates.</p></div>
+      <div class="card"><span class="step-num">Step 4</span><h3>You review</h3><p>Look over a private preview and send feedback in one place.</p></div>
+      <div class="card"><span class="step-num">Step 5</span><h3>We launch</h3><p>Your site goes live, and your walkthrough video lands in your inbox.</p></div>
+    </div>
+  </div>
 </section>
 
-<!-- 08 FAQ -->
-<section style="background: #ffffff">
-<div style="max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px; padding-top: 0; padding-bottom: 150px; display: flex; flex-wrap: wrap; gap: 40px 88px; align-items: flex-start">
-<h2 style="margin: 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(40px, 5.6vw, 80px); line-height: 0.98; letter-spacing: -0.015em; color: #02525d; text-wrap: balance; flex: 1 1 320px">Questions we hear <span style="font-style: italic; font-weight: 500">a lot</span></h2>
-<div style="flex: 1.5 1 480px; display: flex; flex-direction: column; border-top: 1.5px solid #02525d">
-<details style="border-bottom: 1px solid rgba(2,82,93,0.22)"><summary style="cursor: pointer; padding: 22px 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 27px; line-height: 1.2; color: #02525d">Do I have to pick a design again?</summary><p style="margin: 0; padding: 0 0 26px; max-width: 640px; color: #242925">No. You keep the design you already chose.</p></details><details style="border-bottom: 1px solid rgba(2,82,93,0.22)"><summary style="cursor: pointer; padding: 22px 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 27px; line-height: 1.2; color: #02525d">Do I have to redo the work I did before?</summary><p style="margin: 0; padding: 0 0 26px; max-width: 640px; color: #242925">No. We use the copy, photos, and brand details you've already given us, and only ask for what's missing or has changed. [CONFIRM]</p></details><details style="border-bottom: 1px solid rgba(2,82,93,0.22)"><summary style="cursor: pointer; padding: 22px 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 27px; line-height: 1.2; color: #02525d">Do I have to learn a new system?</summary><p style="margin: 0; padding: 0 0 26px; max-width: 640px; color: #242925">No. You change text and photos in a simple editor, and your video shows you exactly where to click.</p></details><details style="border-bottom: 1px solid rgba(2,82,93,0.22)"><summary style="cursor: pointer; padding: 22px 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 27px; line-height: 1.2; color: #02525d">What if I don't have time to make updates?</summary><p style="margin: 0; padding: 0 0 26px; max-width: 640px; color: #242925">Send us a message and we'll make the change for you. [TBD: how many revisions and additions your plan includes]</p></details><details style="border-bottom: 1px solid rgba(2,82,93,0.22)"><summary style="cursor: pointer; padding: 22px 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 27px; line-height: 1.2; color: #02525d">What happens to my current site?</summary><p style="margin: 0; padding: 0 0 26px; max-width: 640px; color: #242925">[CONFIRM: how the switch from the current site is handled, and whether there's any downtime]</p></details><details style="border-bottom: 1px solid rgba(2,82,93,0.22)"><summary style="cursor: pointer; padding: 22px 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 27px; line-height: 1.2; color: #02525d">Will the new site help my SEO?</summary><p style="margin: 0; padding: 0 0 26px; max-width: 640px; color: #242925">It gives you a stronger starting point: faster pages and a cleaner build that search engines read easily. Nobody can promise rankings, and we won't. If you'd like to go further, Matt can build an SEO strategy for your practice.</p></details><details style="border-bottom: 1px solid rgba(2,82,93,0.22)"><summary style="cursor: pointer; padding: 22px 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 27px; line-height: 1.2; color: #02525d">Does my monthly plan change?</summary><p style="margin: 0; padding: 0 0 26px; max-width: 640px; color: #242925">[CONFIRM: new plan details and price]</p></details><details style="border-bottom: 1px solid rgba(2,82,93,0.22)"><summary style="cursor: pointer; padding: 22px 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 27px; line-height: 1.2; color: #02525d">Can I keep my blog posts and my domain?</summary><p style="margin: 0; padding: 0 0 26px; max-width: 640px; color: #242925">[CONFIRM: what content moves over]</p></details><details style="border-bottom: 1px solid rgba(2,82,93,0.22)"><summary style="cursor: pointer; padding: 22px 0; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: 27px; line-height: 1.2; color: #02525d">I never finished my copy. Is that a problem?</summary><p style="margin: 0; padding: 0 0 26px; max-width: 640px; color: #242925">Not at all. You can finish it using your copy doc, or add full copywriting and we'll write it for you.</p></details>
-</div>
-</div>
+<!-- FAQ -->
+<section id="faq" class="bg-cream">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="slabel">FAQ</span>
+      <h2 class="h2" style="font-size:clamp(1.45rem,3vw,1.95rem)">Questions we hear <em>a lot</em></h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item"><summary class="faq-q">Do I have to pick a design again?</summary><div class="faq-a">No. You keep the design you already chose.</div></details>
+      <details class="faq-item"><summary class="faq-q">Do I have to redo the work I did before?</summary><div class="faq-a">No. We use the copy, photos, and brand details you've already given us, and only ask for what's missing or has changed. <span class="tbd">[CONFIRM]</span></div></details>
+      <details class="faq-item"><summary class="faq-q">Do I have to learn a new system?</summary><div class="faq-a">No. You change text and photos in a simple editor, and your video shows you exactly where to click.</div></details>
+      <details class="faq-item"><summary class="faq-q">What if I don't have time to make updates?</summary><div class="faq-a">Send us a message and we'll make the change for you. <span class="tbd">[TBD: how many revisions and additions your plan includes]</span></div></details>
+      <details class="faq-item"><summary class="faq-q">What happens to my current site?</summary><div class="faq-a"><span class="tbd">[CONFIRM: how the switch from the current site is handled, and whether there's any downtime]</span></div></details>
+      <details class="faq-item"><summary class="faq-q">Will the new site help my SEO?</summary><div class="faq-a">It gives you a stronger starting point: faster pages and a cleaner build that search engines read easily. Nobody can promise rankings, and we won't. If you'd like to go further, Matt can build an SEO strategy for your practice.</div></details>
+      <details class="faq-item"><summary class="faq-q">Does my monthly plan change?</summary><div class="faq-a"><span class="tbd">[CONFIRM: new plan details and price]</span></div></details>
+      <details class="faq-item"><summary class="faq-q">Can I keep my blog posts and my domain?</summary><div class="faq-a"><span class="tbd">[CONFIRM: what content moves over]</span></div></details>
+      <details class="faq-item"><summary class="faq-q">I never finished my copy. Is that a problem?</summary><div class="faq-a">Not at all. You can finish it using your copy doc, or add full copywriting and we'll write it for you.</div></details>
+    </div>
+  </div>
 </section>
 
-<!-- 09 CLOSE -->
-<section style="position: relative; overflow: hidden; background: #ffffff">
-<video aria-hidden="true" autoPlay muted loop playsInline poster="assets/closing-typing.jpg" src="assets/closing-typing.mp4" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover"></video>
-<div aria-hidden="true" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0) 26%), linear-gradient(100deg, rgba(255,233,230,0.96) 0%, rgba(255,233,230,0.9) 46%, rgba(255,233,230,0.42) 100%)"></div>
-<div style="position: relative; max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px; padding-top: 190px; padding-bottom: 170px; display: flex; flex-direction: column; gap: 30px; align-items: flex-start">
-<h2 style="margin: 0; max-width: 900px; font-family: 'Cormorant Garamond', Georgia, serif; font-weight: 600; font-size: clamp(54px, 9.4vw, 140px); line-height: 0.9; letter-spacing: -0.03em; color: #02525d">A website you're not afraid <span style="font-style: italic; font-weight: 500">to touch.</span></h2>
-<p style="margin: 0; font-size: 20px; max-width: 520px; color: #1a1a1a">Bring your questions to our call, or send them ahead of time. We'll explain everything in everyday language. You're in a tech-jargon safe zone!</p>
-<img src="assets/whitney-script-logo.png" alt="" style="width: 180px; height: auto">
-</div>
+<!-- CLOSE -->
+<section id="close">
+  <video aria-hidden="true" autoplay muted loop playsinline poster="assets/closing-typing.jpg" src="assets/closing-typing.mp4"></video>
+  <div class="veil" aria-hidden="true"></div>
+  <div class="wrap">
+    <h2>A website you're not afraid <em>to touch.</em></h2>
+    <p class="sub">Bring your questions to our call, or send them ahead of time. We'll explain everything in everyday language. You're in a tech-jargon safe zone!</p>
+    <img class="sig" src="assets/whitney-script-logo.png" alt="" />
+  </div>
 </section>
 
-<footer style="background: #ffffff; border-top: 1px solid rgba(2,82,93,0.22)">
-<div style="max-width: 1200px; margin: 0 auto; padding-left: 24px; padding-right: 24px; padding-top: 26px; padding-bottom: 26px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; font-size: 11.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #5a605c"><span>Whitney Bateson Digital Strategy</span><span>© 2026</span></div>
+<footer>
+  <div class="wrap">Whitney Bateson Digital Strategy · © 2026</div>
 </footer>
 
-</div>
 </body>
 </html>

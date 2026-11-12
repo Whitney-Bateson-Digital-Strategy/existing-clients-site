@@ -281,6 +281,19 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 .tour-toggle[open] .caret{transform:rotate(180deg)}
 .tour-body{margin-top:0;padding:4px 26px 26px;border-top:1px solid var(--border);padding-top:24px}
 
+.result-note{font-size:15px;color:var(--navy);background:var(--peach);border-left:3px solid var(--coral);border-radius:0 var(--r) var(--r) 0;padding:10px 14px;margin:0}
+.result-disclaimer{font-size:15px;font-style:italic;color:var(--muted);margin:4px 0 0}
+
+.g-aqua-blush{background:linear-gradient(180deg,var(--aqua),var(--blush))}
+.designs-strip{padding:64px 0}
+.strip-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;margin-bottom:28px}
+.mini-designs{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+@media(max-width:860px){.mini-designs{grid-template-columns:repeat(2,1fr)}}
+.mini-design{text-decoration:none;color:var(--navy);display:flex;flex-direction:column;gap:10px;transition:transform .2s}
+.mini-design:hover{transform:translateY(-3px)}
+.mini-design img{aspect-ratio:16/11}
+.mini-design span{font-family:var(--head);font-weight:600;font-size:1.25rem}
+
 /* faq */
 .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;max-width:1100px}
 @media(max-width:760px){.faq-list{grid-template-columns:1fr;max-width:700px}}
@@ -350,67 +363,12 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
   </div>
 </section>
 
-<!-- BENEFITS -->
-<section class="g-white-lime">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 class="h2">What the new platform does for your site</h2>
-      <p class="lead">Same design you know, on a setup that's built to perform better and ask less of you.</p>
-    </div>
-    <div class="benefits">
-      <div class="benefit"><span class="b-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg></span><h3>Faster</h3><p>Pages load almost instantly, on any device. Visitors stick around instead of clicking away.</p></div>
-      <div class="benefit"><span class="b-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/></svg></span><h3>Safer</h3><p>Far fewer ways for your site to get hacked, so you're not getting surprise warnings or worrying about your clients' trust.</p></div>
-      <div class="benefit"><span class="b-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><h3>Fewer things that break</h3><p>No plugin updates to keep up with and no surprise errors after an update. Your site just keeps working.</p></div>
-      <div class="benefit"><span class="b-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><h3>Easier to find</h3><p>Clean, lightweight pages that Google and AI search tools can read easily, which gives you a stronger starting point in search.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- DASHBOARD -->
-<section class="g-white-blush2">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 class="h2">A look inside your dashboard</h2>
-      <p class="lead">Change your words and photos right on the page, or from your dashboard. The layout stays locked in place, so your site always looks the way it did on launch day. No shifted sections, no wonky spacing, no wondering what you just broke.</p>
-    </div>
-    <div class="clip" style="margin-top:0">
-      <div class="browser clip-video">
-        <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-        <video autoplay muted loop playsinline preload="metadata" poster="assets/edit-mode.jpg" src="assets/edit-mode.mp4" aria-label="Turning on edit mode, clicking the homepage headline, and typing a new one"></video>
-      </div>
-      <div class="clip-text">
-        <h3>Edit right on the page</h3>
-        <p>Open your site, switch on edit mode, click the words you want to change, and type. Your fonts, colors, and layout stay exactly as they are, so there's nothing to break.</p>
-      </div>
-    </div>
-    <details class="tour-toggle" id="tour-toggle">
-      <summary><span>Or use your dashboard</span><span class="caret" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
-      <div class="clip clip-rev tour-body">
-        <div class="clip-text">
-          <p>Everything lives in one place, and every box is labeled with the part of the page it changes.</p>
-          <ul class="tour-steps" aria-label="What the dashboard tour shows">
-            <li data-at="0">Your pages, services, posts, and testimonials, one click away</li>
-            <li data-at="3.8">Labeled fields for each part of your homepage</li>
-            <li data-at="7.6">Blog posts that work like writing a doc</li>
-            <li data-at="11.4">New testimonials: paste the quote, add a name</li>
-          </ul>
-        </div>
-        <div class="browser clip-video">
-          <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-          <video id="tour" muted loop playsinline preload="none" poster="assets/dashboard-tour.jpg" src="assets/dashboard-tour.mp4" aria-label="A tour of the dashboard: the overview, homepage fields, the blog editor, and a testimonial form"></video>
-        </div>
-      </div>
-    </details>
-    </div>
-  </div>
-</section>
-
 <!-- TWO PATHS -->
-<section id="options" class="g-blush2-white">
+<section id="options" class="g-white-lime">
   <div class="wrap">
     <div class="sec-head">
       <h2 class="h2">Where is your site right now?</h2>
-      <p class="lead">Answer two quick questions and we'll show you what your move looks like.</p>
+      <p class="lead">Answer two quick questions to see what your move will likely look like. Everyone fills out the same few simple forms, and what happens from there depends on where your site is today.</p>
     </div>
 
     <div class="tree" id="tree">
@@ -460,84 +418,117 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
 
     <noscript><p class="lead">Live site? We move it over in the design you chose, with any updates you want. Not live yet? We edit your drafts, or write your copy, and launch it. Book a call with Whitney to talk through yours.</p></noscript>
 
-    <p class="paths-note">Not sure how to answer? That's what the call is for. Whitney will look at your site with you.</p>
+    <p class="paths-note">Every site is a little different, so for a true recommendation, book a call with Whitney. She'll look at your site with you and tell you exactly what it needs.</p>
   </div>
 </section>
 
 <template id="result-templates">
   <div data-result="asis" data-visual="live" data-answer="Keep it as it is">
-    <p class="result-kicker">Your move</p><h3>A straight move</h3>
+    <p class="result-kicker">Your likely move</p><h3>A straight move</h3>
     <p class="result-sub">We move your site over just as it is, in the same design. You barely have to lift a finger.</p>
-    <div class="split"><div><h4>You send</h4><ul class="inc-list"><li>Nothing, unless you'd like to</li></ul></div><div><h4>We handle</h4><ul class="inc-list"><li>Moving your copy, photos, and testimonials</li><li>Rebuilding it in your design</li><li>Switching your site over on launch day</li></ul></div></div>
+    <div class="split"><div><h4>You send</h4><ul class="inc-list"><li>A quick kickoff form about your practice</li><li>Brand files only if anything has changed (otherwise we use what's on your site)</li><li>Your feedback on a private preview</li></ul></div><div><h4>We handle</h4><ul class="inc-list"><li>Moving your copy, photos, and testimonials</li><li>Rebuilding it in your design</li><li>Switching your site over on launch day</li></ul></div></div>
     <p class="result-meta"><strong>Timeline:</strong> about 3 to 4 weeks. <strong>Price:</strong> usually the simplest option.</p>
   </div>
   <div data-result="refresh" data-visual="live" data-answer="Update a few things">
-    <p class="result-kicker">Your move</p><h3>A move with a refresh</h3>
+    <p class="result-kicker">Your likely move</p><h3>A move with a refresh</h3>
     <p class="result-sub">We move everything over and work in your updates along the way.</p>
-    <div class="split"><div><h4>You send</h4><ul class="inc-list"><li>Only the changes you want</li><li>New photos, testimonials, or branding, if you have them</li></ul></div><div><h4>We handle</h4><ul class="inc-list"><li>Moving everything else over</li><li>Editing your new copy so it fits</li><li>Switching your design, if you'd like, at no extra charge</li><li>Switching your site over on launch day</li></ul></div></div>
+    <div class="split"><div><h4>You send</h4><ul class="inc-list"><li>A quick kickoff form about your practice</li><li>A list of the changes you want, written out page by page</li><li>New photos, testimonials, or branding, if you have them</li><li>Your feedback on a private preview</li></ul></div><div><h4>We handle</h4><ul class="inc-list"><li>Moving everything else over</li><li>Editing your new copy so it fits</li><li>Switching your design, if you'd like, at no extra charge</li><li>Switching your site over on launch day</li></ul></div></div>
     <p class="result-meta"><strong>Timeline:</strong> about 3 to 5 weeks. <strong>Price:</strong> based on how much you're changing.</p>
   </div>
   <div data-result="newcopy" data-visual="live" data-answer="I want new copy">
-    <p class="result-kicker">Your move</p><h3>A move with new copy</h3>
+    <p class="result-kicker">Your likely move</p><h3>A move with new copy</h3>
     <p class="result-sub">Same site, fresh words. We write new copy and launch it on the new platform.</p>
-    <div class="split"><div><h4>You send</h4><ul class="inc-list"><li>Answers about your practice and clients on the kickoff form</li></ul></div><div><h4>We handle</h4><ul class="inc-list"><li>Writing your new copy</li><li>An optional copy strategy call with Matt</li><li>Rebuilding your site with the new copy</li><li>Switching your site over on launch day</li></ul></div></div>
-    <p class="result-meta"><strong>Timeline:</strong> about 5 to 6 weeks. <strong>Price:</strong> copywriting is an add-on.</p>
+    <div class="split"><div><h4>You send</h4><ul class="inc-list"><li>A quick kickoff form about your practice</li><li>Background on your services and the clients you serve</li><li>New photos or branding, if you have them</li><li>Your feedback on a private preview</li></ul></div><div><h4>We handle</h4><ul class="inc-list"><li>Writing your new copy</li><li>An optional copy strategy call with Matt</li><li>Rebuilding your site with the new copy</li><li>Switching your site over on launch day</li></ul></div></div>
+    <p class="result-note">Copywriting changes your timeline and price, so we scope it on its own call before anything starts.</p><p class="result-meta"><strong>Timeline:</strong> about 5 to 6 weeks. <strong>Price:</strong> copywriting is an add-on.</p>
   </div>
   <div data-result="drafted" data-visual="draft" data-answer="Mostly written">
-    <p class="result-kicker">Your move</p><h3>Finish and launch</h3>
+    <p class="result-kicker">Your likely move</p><h3>Finish and launch</h3>
     <p class="result-sub">You've done most of the work. We polish it and get it live.</p>
-    <div class="split"><div><h4>You send</h4><ul class="inc-list"><li>Your copy drafts, however rough</li><li>Your logo, colors, and photos</li></ul></div><div><h4>We handle</h4><ul class="inc-list"><li>Editing your drafts into finished copy</li><li>Building every page in your design</li><li>Stock photos, booking calendar, and opt-in</li><li>Switching your site over on launch day</li></ul></div></div>
+    <div class="split"><div><h4>You send</h4><ul class="inc-list"><li>A quick kickoff form about your practice</li><li>Your brand files: logo, colors, fonts, and photos</li><li>Your copy drafts in your copy doc, however rough</li><li>Your feedback on a private preview</li></ul></div><div><h4>We handle</h4><ul class="inc-list"><li>Editing your drafts into finished copy</li><li>Building every page in your design</li><li>Stock photos, booking calendar, and opt-in</li><li>Launching it</li></ul></div></div>
     <p class="result-meta"><strong>Timeline:</strong> about 3 to 4 weeks. <strong>Price:</strong> copy editing is included.</p>
   </div>
   <div data-result="started" data-visual="draft" data-answer="Started, not finished">
-    <p class="result-kicker">Your move</p><h3>Fill the gaps, then launch</h3>
+    <p class="result-kicker">Your likely move</p><h3>Fill the gaps, then launch</h3>
     <p class="result-sub">You'll have a couple of weeks to fill in what's missing, and we take it from there.</p>
-    <div class="split"><div><h4>You send</h4><ul class="inc-list"><li>The copy you have, plus drafts for the blanks</li><li>Your logo, colors, and photos</li></ul></div><div><h4>We handle</h4><ul class="inc-list"><li>Editing everything into finished copy</li><li>Writing the rest instead, if you'd prefer</li><li>Building every page in your design</li><li>Switching your site over on launch day</li></ul></div></div>
-    <p class="result-meta"><strong>Timeline:</strong> about 4 to 5 weeks. <strong>Price:</strong> based on how much help you want with copy.</p>
+    <div class="split"><div><h4>You send</h4><ul class="inc-list"><li>A quick kickoff form about your practice</li><li>Your brand files: logo, colors, fonts, and photos</li><li>The copy you have, plus drafts for the blanks</li><li>Your feedback on a private preview</li></ul></div><div><h4>We handle</h4><ul class="inc-list"><li>Editing everything into finished copy</li><li>Building every page in your design</li><li>Stock photos, booking calendar, and opt-in</li><li>Launching it</li></ul></div></div>
+    <p class="result-note">Would you rather we write the rest? That's copywriting, which changes your timeline and price, so we'd scope it on its own call.</p><p class="result-meta"><strong>Timeline:</strong> about 4 to 5 weeks. <strong>Price:</strong> copy editing is included.</p>
   </div>
   <div data-result="zero" data-visual="draft" data-answer="Haven't started">
-    <p class="result-kicker">Your move</p><h3>We write it, then launch</h3>
+    <p class="result-kicker">Your likely move</p><h3>We write it, then launch</h3>
     <p class="result-sub">No blank page for you. We write your copy and build the whole site.</p>
-    <div class="split"><div><h4>You send</h4><ul class="inc-list"><li>Answers about your practice and clients on the kickoff form</li><li>Your logo, colors, and photos</li></ul></div><div><h4>We handle</h4><ul class="inc-list"><li>Writing your copy</li><li>An optional copy strategy call with Matt</li><li>Building every page in your design</li><li>Switching your site over on launch day</li></ul></div></div>
-    <p class="result-meta"><strong>Timeline:</strong> about 5 to 6 weeks. <strong>Price:</strong> copywriting is an add-on.</p>
+    <div class="split"><div><h4>You send</h4><ul class="inc-list"><li>A quick kickoff form about your practice</li><li>Your brand files: logo, colors, fonts, and photos</li><li>Background on your services and the clients you serve</li><li>Your feedback on a private preview</li></ul></div><div><h4>We handle</h4><ul class="inc-list"><li>Writing your copy</li><li>An optional copy strategy call with Matt</li><li>Building every page in your design</li><li>Launching it</li></ul></div></div>
+    <p class="result-note">Copywriting changes your timeline and price, so we scope it on its own call before anything starts.</p><p class="result-meta"><strong>Timeline:</strong> about 5 to 6 weeks. <strong>Price:</strong> copywriting is an add-on.</p>
   </div>
 </template>
 
-<!-- THE DESIGNS -->
+<!-- BENEFITS -->
+<section class="g-lime-white">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2">What the new platform does for your site</h2>
+      <p class="lead">Same design you know, on a setup that's built to perform better and ask less of you.</p>
+    </div>
+    <div class="benefits">
+      <div class="benefit"><span class="b-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg></span><h3>Lighter pages</h3><p>No heavy page-builder code slowing things down, and a fraction of the files for visitors' phones to load.</p></div>
+      <div class="benefit"><span class="b-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 3v6c0 5-3.5 9-8 11-4.5-2-8-6-8-11V5l8-3z"/></svg></span><h3>Safer</h3><p>Far fewer ways for your site to get hacked, so you're not getting surprise warnings or worrying about your clients' trust.</p></div>
+      <div class="benefit"><span class="b-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span><h3>Fewer things that break</h3><p>No plugin updates to keep up with and no surprise errors after an update. Your site just keeps working.</p></div>
+      <div class="benefit"><span class="b-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span><h3>Easier to find</h3><p>Clean, lightweight pages that Google and AI search tools can read easily, which gives you a stronger starting point in search.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
 <section class="g-white-aqua">
   <div class="wrap">
     <div class="sec-head">
-      <h2 class="h2">You keep the design you chose</h2>
-      <p class="lead">You already chose your look, and nothing about that changes. Here are the four designs as a reminder of which one is yours.</p>
+      <h2 class="h2">A look inside your dashboard</h2>
+      <p class="lead">Change your words and photos right on the page, or from your dashboard. The layout stays locked in place, so your site always looks the way it did on launch day. No shifted sections, no wonky spacing, no wondering what you just broke.</p>
     </div>
-    <div class="designs">
-      <a class="design" href="https://template.whitneybateson.com/">
-        <div class="design-shot" style="background:var(--t-classic)"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/design-one.jpg" alt="Design One, Classic, shown with sample content" /></div></div>
-        <div class="design-meta"><span><span class="design-name">Classic</span><span class="design-num">Design One</span></span><span class="design-link">See the live demo</span></div>
-        <p class="design-desc">Clean, timeless, and versatile.</p>
-      </a>
-      <a class="design" href="https://template02.whitneybateson.com/">
-        <div class="design-shot" style="background:var(--t-bright)"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/design-two.jpg" alt="Design Two, Bright, shown with sample content" /></div></div>
-        <div class="design-meta"><span><span class="design-name">Bright</span><span class="design-num">Design Two</span></span><span class="design-link">See the live demo</span></div>
-        <p class="design-desc">Colorful and full of personality.</p>
-      </a>
-      <a class="design" href="https://template03.whitneybateson.com/">
-        <div class="design-shot" style="background:var(--t-bold)"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/design-three.jpg" alt="Design Three, Bold, shown with sample content" /></div></div>
-        <div class="design-meta"><span><span class="design-name">Bold</span><span class="design-num">Design Three</span></span><span class="design-link">See the live demo</span></div>
-        <p class="design-desc">Rich color and a confident presence.</p>
-      </a>
-      <a class="design" href="https://template04.whitneybateson.com/">
-        <div class="design-shot" style="background:var(--t-soft)"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/design-four.jpg" alt="Design Four, Soft, shown with sample content" /></div></div>
-        <div class="design-meta"><span><span class="design-name">Soft</span><span class="design-num">Design Four</span></span><span class="design-link">See the live demo</span></div>
-        <p class="design-desc">Gentle, inviting, and warm.</p>
-      </a>
+    <div class="clip" style="margin-top:0">
+      <div class="browser clip-video">
+        <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/edit-mode.jpg" src="assets/edit-mode.mp4" aria-label="Turning on edit mode, clicking the homepage headline, and typing a new one"></video>
+      </div>
+      <div class="clip-text">
+        <h3>Edit right on the page</h3>
+        <p>Open your site, switch on edit mode, click the words you want to change, and type. Your fonts, colors, and layout stay exactly as they are, so there's nothing to break.</p>
+      </div>
     </div>
-    <p class="note-sm">Shown with sample content.</p>
+    <details class="tour-toggle" id="tour-toggle">
+      <summary><span>Or use your dashboard</span><span class="caret" aria-hidden="true"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+      <div class="clip clip-rev tour-body">
+        <div class="clip-text">
+          <p>Everything lives in one place, and every box is labeled with the part of the page it changes.</p>
+          <ul class="tour-steps" aria-label="What the dashboard tour shows">
+            <li data-at="0">Your pages, services, posts, and testimonials, one click away</li>
+            <li data-at="3.8">Labeled fields for each part of your homepage</li>
+            <li data-at="7.6">Blog posts that work like writing a doc</li>
+            <li data-at="11.4">New testimonials: paste the quote, add a name</li>
+          </ul>
+        </div>
+        <div class="browser clip-video">
+          <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+          <video id="tour" muted loop playsinline preload="none" poster="assets/dashboard-tour.jpg" src="assets/dashboard-tour.mp4" aria-label="A tour of the dashboard: the overview, homepage fields, the blog editor, and a testimonial form"></video>
+        </div>
+      </div>
+    </details>
+    </div>
+  </div>
+</section>
+
+<!-- THE DESIGNS -->
+<section class="g-aqua-white designs-strip">
+  <div class="wrap">
+    <div class="strip-head">
+      <h2 class="h2" style="font-size:clamp(1.45rem,3vw,1.95rem);margin:0">You keep the design you chose</h2>
+      <p class="lead" style="margin:0">Or switch to another at no extra charge. Click any design to see it live.</p>
+    </div>
+    <div class="mini-designs"><a class="mini-design" href="https://template.whitneybateson.com/"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/design-one.jpg" alt="Design One, Classic, shown with sample content" loading="lazy" /></div><span>Classic</span></a><a class="mini-design" href="https://template02.whitneybateson.com/"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/design-two.jpg" alt="Design Two, Bright, shown with sample content" loading="lazy" /></div><span>Bright</span></a><a class="mini-design" href="https://template03.whitneybateson.com/"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/design-three.jpg" alt="Design Three, Bold, shown with sample content" loading="lazy" /></div><span>Bold</span></a><a class="mini-design" href="https://template04.whitneybateson.com/"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/design-four.jpg" alt="Design Four, Soft, shown with sample content" loading="lazy" /></div><span>Soft</span></a></div>
   </div>
 </section>
 
 <!-- WHAT YOU GET -->
-<section class="g-aqua-white">
+<section class="g-white-lav">
   <div class="wrap">
     <div class="sec-head">
       <h2 class="h2">What's included</h2>
@@ -565,7 +556,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="g-white-lav">
+<section class="g-lav-white">
   <div class="wrap">
     <div class="sec-head">
       <h2 class="h2">How it works</h2>
@@ -582,7 +573,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
 </section>
 
 <!-- TEAM -->
-<section class="g-lav-white">
+<section class="g-white-aqua">
   <div class="wrap">
     <div class="sec-head">
       <h2 class="h2">The team doing the work</h2>
@@ -618,7 +609,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
 </section>
 
 <!-- FAQ -->
-<section id="faq" class="g-white-blush">
+<section id="faq" class="g-aqua-blush">
   <div class="wrap">
     <div class="sec-head">
       <h2 class="h2" style="font-size:clamp(1.45rem,3vw,1.95rem)">Common questions</h2>
@@ -704,7 +695,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
     } else if(c.dataset.result){
       markDone(node,label);
       var src=tpl.content.querySelector('[data-result="'+c.dataset.result+'"]');
-      resultBox.innerHTML=visuals[src.dataset.visual]+'<div class="result-body">'+src.innerHTML+'<div class="result-actions"><a class="btn btn-p" href="#book-call">Book a call with Whitney</a><button type="button" class="restart">Start over</button></div></div>';
+      resultBox.innerHTML=visuals[src.dataset.visual]+'<div class="result-body">'+src.innerHTML+'<p class="result-disclaimer">This is a starting point. For a true recommendation for your site, book a call with Whitney.</p><div class="result-actions"><a class="btn btn-p" href="#book-call">Book a call with Whitney</a><button type="button" class="restart">Start over</button></div></div>';
       show(nodes.result);
       resultBox.querySelector('.restart').addEventListener('click',function(){
         hideFrom(['live','notlive','result']); reset(nodes.start); nodes.start.classList.add('is-last');

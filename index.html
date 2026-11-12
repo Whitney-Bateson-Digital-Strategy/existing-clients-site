@@ -195,6 +195,41 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 .clip-text h3{font-size:clamp(1.4rem,2.4vw,1.75rem);margin-bottom:12px}
 .clip-text p{font-size:17px;color:var(--muted);line-height:1.65}
 
+:root{--blush2:#fff6f2}
+.g-white-blush2{background:linear-gradient(180deg,var(--limet) 0%,var(--white) 30%,var(--blush2) 100%)}
+.g-blush2-white{background:linear-gradient(180deg,var(--blush2),var(--white))}
+.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 32px;margin-top:48px}
+@media(max-width:760px){.shots{grid-template-columns:1fr}}
+.shot{margin:0}
+.shot img{display:block;width:100%;height:auto}
+.shot figcaption{margin-top:12px;font-size:16px;color:var(--muted);line-height:1.55}
+.shot figcaption strong{color:var(--navy)}
+
+/* elevated paths */
+.paths{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;align-items:stretch}
+@media(max-width:900px){.paths{grid-template-columns:1fr}}
+.path2{background:var(--white);border:1px solid var(--border);border-radius:var(--r-lg);box-shadow:0 10px 40px rgba(2,82,93,.10);overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.path2:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(2,82,93,.14)}
+.path2-visual{position:relative;padding:36px 40px 0;height:250px;overflow:hidden}
+.path2-visual .browser{border-radius:var(--r) var(--r) 0 0;border-bottom:none}
+.path2-visual img{aspect-ratio:16/10}
+.path2-badge{position:absolute;top:16px;left:16px;z-index:2;display:inline-flex;gap:8px;align-items:center;background:var(--white);color:var(--navy);font-size:14px;font-weight:700;padding:6px 14px;border-radius:999px;box-shadow:var(--sh-sm)}
+.is-draft{position:relative}
+.is-draft img{opacity:.45;filter:grayscale(.5)}
+.is-draft::after{content:'';position:absolute;inset:30px 12px 0;border:2px dashed rgba(2,82,93,.35);border-bottom:none;border-radius:4px 4px 0 0}
+.path2-body{padding:32px 36px 36px;display:flex;flex-direction:column;gap:14px;flex:1}
+@media(max-width:640px){.path2-body{padding:26px 22px 28px}.path2-visual{padding:32px 22px 0;height:200px}}
+.path2-kicker{font-size:15px;font-weight:700;color:var(--coral);margin:0}
+.path2 h3{font-size:clamp(1.6rem,2.8vw,2.1rem);line-height:1.15}
+.path2-sub{font-size:17px;color:var(--muted);margin:0}
+.split{display:grid;grid-template-columns:1fr 1.3fr;gap:24px;margin-top:8px;padding-top:20px;border-top:1px solid var(--border)}
+@media(max-width:560px){.split{grid-template-columns:1fr;gap:18px}}
+.split h4{font-family:var(--head);font-size:1.2rem;font-weight:600;color:var(--navy);margin-bottom:10px}
+.split .inc-list li{font-size:15px}
+.path2-foot{margin-top:auto;padding-top:20px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:16px;align-items:flex-start}
+.path2-foot p{font-size:15px;color:var(--muted);margin:0}
+.paths-note{text-align:center;font-family:var(--head);font-style:italic;font-weight:600;font-size:clamp(1.15rem,2.2vw,1.35rem);color:var(--navy);margin:40px auto 0;max-width:640px}
+
 /* faq */
 .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;max-width:1100px}
 @media(max-width:760px){.faq-list{grid-template-columns:1fr;max-width:700px}}
@@ -235,7 +270,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
       <h1 class="hero-h1">We'll take your website from here.</h1>
       <p class="hero-lede">You've already got a practice to run. Let us handle the website.</p>
       <p class="hero-sub">We'll move your site to a faster, more modern platform and take care of the setup, design, and launch. Love your website as it is? We'll keep the look you already have. Ready for a refresh? We can update your copy, colors, and branding along the way. And if your website never made it live, we'll help you get it finished and published.</p>
-      <a class="btn btn-p" href="#options">See your options</a>
+      <a class="btn btn-p" href="#book-call">Book a call with Whitney</a>
     </div>
     <div class="hero-visual">
       <div class="browser">
@@ -261,17 +296,6 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
       <div class="card"><h3>Your copy, polished for you</h3><p>Send the drafts or changes you have, however rough. We'll edit them into clear, finished copy that fits your site, so you're not stuck staring at a blank page or second-guessing every word.</p></div>
       <div class="card"><h3>A clear finish line</h3><p>You'll get a roadmap with every deadline and a launch date, and we keep things moving from start to finish. No more half-done website sitting in drafts.</p></div>
     </div>
-    <div class="clip">
-      <div class="browser clip-video">
-        <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-        <video autoplay muted loop playsinline preload="metadata" poster="assets/edit-mode.jpg" src="assets/edit-mode.mp4" aria-label="Turning on edit mode, clicking the homepage headline, and typing a new one"></video>
-      </div>
-      <div class="clip-text">
-        <h3>Want to make a quick change yourself?</h3>
-        <p>Open your site, switch on edit mode, click the words you want to change, and type. Your fonts, colors, and layout stay exactly as they are, so there's nothing to break.</p>
-        <p>Rather not? Send it to us and we'll take care of it.</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -291,37 +315,75 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
   </div>
 </section>
 
+<!-- DASHBOARD -->
+<section class="g-white-blush2">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2">A look inside your dashboard</h2>
+      <p class="lead">If you ever want to make a change yourself, here's what you'll see. Every page is a simple form with clear labels, and nothing you type can break the design.</p>
+    </div>
+    <div class="clip" style="margin-top:0">
+      <div class="browser clip-video">
+        <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/edit-mode.jpg" src="assets/edit-mode.mp4" aria-label="Turning on edit mode, clicking the homepage headline, and typing a new one"></video>
+      </div>
+      <div class="clip-text">
+        <h3>Edit right on the page</h3>
+        <p>Open your site, switch on edit mode, click the words you want to change, and type. Your fonts, colors, and layout stay exactly as they are, so there's nothing to break.</p>
+        <p>Rather not? Send it to us and we'll take care of it.</p>
+      </div>
+    </div>
+    <div class="shots">
+      <figure class="shot"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/dash-overview.jpg" alt="The dashboard home, listing Homepage, Pages, Posts, Services, Site-wide content, and Testimonials" loading="lazy" /></div><figcaption><strong>Everything in one place.</strong> Your pages, services, blog posts, and testimonials, each one click away.</figcaption></figure>
+      <figure class="shot"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/dash-homepage.jpg" alt="Editing the homepage: labeled fields for the banner photo, headline, and text" loading="lazy" /></div><figcaption><strong>Labeled fields.</strong> Each box tells you exactly which part of the page it changes.</figcaption></figure>
+      <figure class="shot"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/dash-blog.jpg" alt="Writing a blog post in a simple text editor" loading="lazy" /></div><figcaption><strong>Blog posts like a doc.</strong> Write, format, add a photo, and publish.</figcaption></figure>
+      <figure class="shot"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/dash-testimonial.jpg" alt="Adding a testimonial: headline, quote, and client name fields" loading="lazy" /></div><figcaption><strong>New testimonial?</strong> Paste the quote, add a name, and it shows up on your site.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
 <!-- TWO PATHS -->
-<section id="options" class="g-lime-white">
+<section id="options" class="g-blush2-white">
   <div class="wrap">
     <div class="sec-head">
       <h2 class="h2">Where is your site right now?</h2>
-      <p class="lead">Two starting points, one destination: a website that's done, live, and looked after.</p>
+      <p class="lead">Pick the one that sounds like you. Either way, we do the heavy lifting.</p>
     </div>
-    <div class="grid-2">
-      <div class="path path-live">
-        <span class="path-pill"><span class="path-dot" aria-hidden="true"></span>My site is live</span>
-        <h3>We move it over for you.</h3>
-        <p class="path-sub">We start from your live site, so you only send what you want changed.</p>
-        <ul class="inc-list">
-          <li>Your copy, photos, and testimonials come with you</li>
-          <li>Keep your design, or switch to another one at no extra charge</li>
-          <li>Send updated copy, services, photos, or branding if you'd like a refresh</li>
-        </ul>
-        <p class="path-next">Often the simplest move. Your price depends on how much you want changed.</p>
-      </div>
-      <div class="path path-notlive">
-        <span class="path-pill"><span class="path-dot empty" aria-hidden="true"></span>My site isn't live yet</span>
-        <h3>We finish it and launch it.</h3>
-        <p class="path-sub">We pick up wherever you stopped.</p>
-        <ul class="inc-list">
-          <li>Send the copy drafts you have, however rough, and we'll edit them into finished copy</li>
-          <li>Haven't started your copy? We can write it for you</li>
-          <li>We add your brand and photos and launch it in the design you chose</li>
-        </ul>
-        <p class="path-next">Your price depends on how much of your copy is done and how much help you want with it.</p>
-      </div>
+    <div class="paths">
+      <article class="path2">
+        <div class="path2-visual" style="background:var(--t-classic)">
+          <span class="path2-badge"><span class="path-dot" aria-hidden="true"></span>Live</span>
+          <div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/design-one.jpg" alt="" /></div>
+        </div>
+        <div class="path2-body">
+          <p class="path2-kicker">My site is live</p>
+          <h3>We move it over for you.</h3>
+          <p class="path2-sub">We start from your live site, so you only send what you want changed.</p>
+          <div class="split">
+            <div><h4>You send</h4><ul class="inc-list"><li>Only the changes you want, if any</li><li>New photos, testimonials, or branding, if you're refreshing</li></ul></div>
+            <div><h4>We handle</h4><ul class="inc-list"><li>Moving your copy, photos, and testimonials</li><li>Rebuilding it in your design, or a new one at no extra charge</li><li>Editing any new copy so it fits</li><li>Setup, domain, and launch</li></ul></div>
+          </div>
+          <div class="path2-foot"><p>Often the simplest move. Your price depends on how much you want changed.</p><a class="btn btn-p" href="#book-call">Book a call with Whitney</a></div>
+        </div>
+      </article>
+      <article class="path2">
+        <div class="path2-visual" style="background:var(--t-bright)">
+          <span class="path2-badge"><span class="path-dot empty" aria-hidden="true"></span>Draft</span>
+          <div class="browser is-draft"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/design-two.jpg" alt="" /></div>
+        </div>
+        <div class="path2-body">
+          <p class="path2-kicker">My site isn't live yet</p>
+          <h3>We finish it and launch it.</h3>
+          <p class="path2-sub">We pick up wherever you stopped.</p>
+          <div class="split">
+            <div><h4>You send</h4><ul class="inc-list"><li>Your copy drafts, however rough</li><li>Your logo, colors, and photos</li></ul></div>
+            <div><h4>We handle</h4><ul class="inc-list"><li>Editing your drafts into finished copy, or writing it for you</li><li>Building every page in the design you chose</li><li>Stock photos, booking calendar, and opt-in</li><li>Setup, domain, and launch</li></ul></div>
+          </div>
+          <div class="path2-foot"><p>Your price depends on how much of your copy is done and how much help you want with it.</p><a class="btn btn-p" href="#book-call">Book a call with Whitney</a></div>
+        </div>
+      </article>
     </div>
+    <p class="paths-note">Not sure which one fits? That's what the call is for. Whitney will look at your site with you and tell you.</p>
   </div>
 </section>
 
@@ -380,7 +442,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
       <hr class="p-divider" />
       <div class="grid-2 p-notes">
         <div><span class="p-eyebrow">Need more?</span><p>We can write your copy from scratch, add pages or more than three services, or set you up with a copy strategy call with Matt. These are priced separately.</p></div>
-        <div><span class="p-eyebrow">What it costs</span><p>Every site starts in a different place, so pricing is based on what yours needs. A straight move with a few updates costs less than starting from scratch with new copy. You'll get a clear quote before any work begins.</p></div>
+        <div><span class="p-eyebrow">What it costs</span><p>Every site starts in a different place, so pricing is based on what yours needs. A straight move with a few updates costs less than starting from scratch with new copy. You'll get a clear quote after a short call with Whitney, before any work begins.</p></div>
       </div>
     </div>
   </div>
@@ -391,7 +453,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
   <div class="wrap">
     <div class="sec-head">
       <h2 class="h2">How it works</h2>
-      <p class="lead">Most websites launch three to six weeks after kickoff, depending on how ready your copy and branding are. Everything happens over email and on your project roadmap, so there are no meetings to fit in.</p>
+      <p class="lead">Most websites launch three to six weeks after kickoff, depending on how ready your copy and branding are. After a quick call with Whitney to scope it, everything happens over email and on your project roadmap, on your schedule.</p>
     </div>
     <div class="steps-5">
       <div class="card"><span class="step-num">1</span><h3>You fill out a kickoff form</h3><p>Tell us about your practice, your services, and where your site stands. It takes a few days, and it sets your timeline.</p></div>
@@ -449,9 +511,9 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
       <details class="faq-item"><summary class="faq-q">Do I have to pick a design again?</summary><div class="faq-a">No. You can keep the design you already chose. If you'd like a different one of the four, switching is no extra charge.</div></details>
       <details class="faq-item"><summary class="faq-q">Do I have to redo the work I did before?</summary><div class="faq-a">No. If your site is live, we start from it and you only send what you want changed. If it isn't, we work from the copy document you started in the Wellness Pro Website System.</div></details>
       <details class="faq-item"><summary class="faq-q">I never finished my copy. Is that a problem?</summary><div class="faq-a">Not at all. Nobody shows up with perfect copy. Send your drafts, however rough, and we'll edit them. If you haven't started, we can write it for you as an add-on.</div></details>
-      <details class="faq-item"><summary class="faq-q">How much does it cost?</summary><div class="faq-a">It depends on where your site is now and where you want it to go. Moving a live site with a few updates is the simplest. Finishing a site that never launched, or having us write your copy, takes more. Tell us what you need and we'll send you a quote before anything starts.</div></details>
+      <details class="faq-item"><summary class="faq-q">How much does it cost?</summary><div class="faq-a">It depends on where your site is now and where you want it to go. Moving a live site with a few updates is the simplest. Finishing a site that never launched, or having us write your copy, takes more. Book a call with Whitney and you'll get a quote before anything starts.</div></details>
       <details class="faq-item"><summary class="faq-q">How long does it take?</summary><div class="faq-a">Most websites launch three to six weeks after kickoff. The biggest factor is how ready your copy and branding are. Once we have everything, it's two weeks to launch.</div></details>
-      <details class="faq-item"><summary class="faq-q">Do I need to get on a call?</summary><div class="faq-a">No. Everything happens over email and on your project roadmap, so you can do it on your own schedule.</div></details>
+      <details class="faq-item"><summary class="faq-q">Do I need to get on a call?</summary><div class="faq-a">Just one, if you'd like. A short call with Whitney is the easiest way to figure out what your site needs and get your quote. After that, your project runs over email and on your roadmap, on your schedule.</div></details>
       <details class="faq-item"><summary class="faq-q">Can I still make changes myself?</summary><div class="faq-a">Yes. You'll get simple instructions for changing text, photos, and blog posts. New pages and layout changes go through us.</div></details>
       <details class="faq-item"><summary class="faq-q">What happens to my current site?</summary><div class="faq-a"><span class="tbd">[CONFIRM: how the switch from the current site is handled, and whether there's any downtime]</span></div></details>
       <details class="faq-item"><summary class="faq-q">Can I keep my blog posts and my domain?</summary><div class="faq-a">Yes. Tell us on the kickoff form if you'd like your existing blog posts moved over. We'll connect your domain at launch.</div></details>
@@ -463,13 +525,13 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
 
 <!-- CLOSE -->
 
-<section id="close">
+<section id="close"><span id="book-call"></span>
   <video aria-hidden="true" autoplay muted loop playsinline poster="assets/closing-typing.jpg" src="assets/closing-typing.mp4"></video>
   <div class="veil" aria-hidden="true"></div>
   <div class="wrap">
     <h2>A website you're not afraid to touch.</h2>
-    <p class="sub">Tell us where your site is and where you want it to go, and we'll send you a quote. Questions? Reply to any of our emails. You're in a tech-jargon safe zone!</p>
-    <p style="margin-bottom:32px"><a class="btn btn-p" href="#">Get my quote</a> <span class="tbd">[CONFIRM: link]</span></p>
+    <p class="sub">Book a short call with Whitney. She'll look at where your site is, talk through where you want it to go, and you'll get a clear quote. You're in a tech-jargon safe zone!</p>
+    <p style="margin-bottom:32px"><a class="btn btn-p" href="#book-call">Book a call with Whitney</a> <span class="tbd">[CONFIRM: booking link]</span></p>
     <img class="sig" src="assets/whitney-script-logo.png" alt="" />
   </div>
 </section>

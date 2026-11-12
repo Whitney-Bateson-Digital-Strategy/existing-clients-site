@@ -448,6 +448,13 @@ section{padding:96px 0}
 .matt p{font-size:16.5px;color:var(--muted);line-height:1.6;margin:0}
 .matt strong{color:var(--navy)}
 
+/* section dividers */
+body>section{position:relative}
+body>section+section::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:min(1168px,calc(100% - 40px));height:1px;background:rgba(2,82,93,.14)}
+
+.platform{position:relative;padding-top:64px;margin-top:64px}
+.platform::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:rgba(2,82,93,.14)}
+
 /* faq */
 .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;max-width:1100px}
 @media(max-width:760px){.faq-list{grid-template-columns:1fr;max-width:700px}}
@@ -657,7 +664,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
       <div class="step-ed">
         <p class="big-num">03</p><h3>Launch</h3><p class="phase-time">About 1 week</p>
         <p>You take a final look and Priscilla makes any agreed-upon adjustments. Then Ian handles the technical side and takes your new site live.</p>
-        <div class="lead-by"><div class="lead-by-empty" aria-hidden="true">I</div><div><strong>Ian <span class="tbd">[LAST NAME]</span></strong><span>Developer <span class="tbd">[ADD PHOTO]</span></span></div></div>
+        <div class="lead-by"><img src="assets/ian.jpg" alt="" /><div><strong>Ian Datulimbac</strong><span>Developer</span></div></div>
       </div>
     </div>
     <div class="matt">

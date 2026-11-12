@@ -106,10 +106,6 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 .demo-slot strong{font-family:var(--head);font-weight:600;font-size:clamp(1.3rem,2.6vw,1.8rem);line-height:1.2}
 .demo-slot span{font-size:15px;color:var(--muted);max-width:520px}
 
-/* matt callout */
-.callout{display:flex;flex-wrap:wrap;gap:20px 24px;align-items:center;margin-top:40px;background:var(--white);border:1px solid var(--border);border-left:3px solid var(--coral);border-radius:var(--r);padding:24px 28px;box-shadow:var(--sh-sm)}
-.callout img{width:72px;height:72px;border-radius:50%;object-fit:cover;flex-shrink:0}
-.callout p{flex:1 1 300px;margin:0;font-family:var(--head);font-style:italic;font-weight:600;font-size:clamp(1.15rem,2.3vw,1.4rem);line-height:1.45;color:var(--navy)}
 
 /* two paths */
 .path{border-radius:var(--r-lg);padding:40px 44px;display:flex;flex-direction:column;gap:18px;border:1px solid var(--border);box-shadow:var(--sh-sm)}
@@ -159,6 +155,17 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 @media(max-width:1000px){.steps-5{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.steps-5{grid-template-columns:1fr}}
 
+/* team */
+.team{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+@media(max-width:1000px){.team{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.team{grid-template-columns:1fr}}
+.person{background:var(--white);border:1px solid var(--border);border-radius:var(--r);padding:28px;box-shadow:var(--sh-card)}
+.person-photo{width:96px;height:96px;border-radius:50%;object-fit:cover;display:block;margin-bottom:18px;border:3px solid var(--lime)}
+.person-photo-empty{display:flex;align-items:center;justify-content:center;background:var(--soft);font-family:var(--head);font-size:2.2rem;font-weight:600;color:var(--navy)}
+.person h3{font-size:1.35rem;margin-bottom:2px}
+.person-role{font-size:15px;font-weight:700;color:var(--coral);margin-bottom:12px}
+.person p:last-child{font-size:16px;color:var(--muted);line-height:1.62}
+
 /* faq */
 .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;max-width:1100px}
 @media(max-width:760px){.faq-list{grid-template-columns:1fr;max-width:700px}}
@@ -197,7 +204,7 @@ footer{background:var(--navy-dk);padding:28px 0;text-align:center;font-size:14px
   <div class="wrap hero-cols">
     <div>
       <h1 class="hero-h1">We'll take your website from here.</h1>
-      <p class="hero-sub">Your website is due for a builder update either way. Instead of moving it to the next version of the old builder, we'll move it to a newer, faster platform and do the work for you. Keep your site exactly as it is, or refresh your copy, colors, and branding while we're at it. If your site never got published, we'll finish it and launch it.</p>
+      <p class="hero-sub">You shouldn't have to manage a website on top of running your practice. We'll move your site to a newer, faster platform and do all of the work. Keep it exactly as it is, or refresh your copy, colors, and branding while we're at it. If your site never got published, we'll finish it and launch it.</p>
       <a class="btn btn-p" href="#options">See your options</a>
     </div>
     <div class="hero-visual">
@@ -266,10 +273,6 @@ footer{background:var(--navy-dk);padding:28px 0;text-align:center;font-size:14px
       <div class="card"><h3>Faster pages</h3><p>Your site loads quickly on phones and laptops. Visitors stay, and search engines notice.</p></div>
       <div class="card"><h3>Cleaner under the hood</h3><p>Pages are built so Google and AI search tools can read them easily, with no plugins getting in the way.</p></div>
       <div class="card"><h3>Ready for more</h3><p>When you want to go further, Matt can plan the search terms behind your pages and help you turn what you know into content people are looking for.</p></div>
-    </div>
-    <div class="callout">
-      <img src="assets/matt.jpg" alt="Matt Kuncaitis" />
-      <p>Curious where your site stands today? Ask us about a free SEO review with Matt. <span class="tbd">[CONFIRM: offer and link]</span></p>
     </div>
   </div>
 </section>
@@ -381,8 +384,44 @@ footer{background:var(--navy-dk);padding:28px 0;text-align:center;font-size:14px
   </div>
 </section>
 
+<!-- TEAM -->
+<section class="bg-cream bt">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2">The team doing the work</h2>
+      <p class="lead">A small team that knows your business and your site. You'll know exactly who's working on what.</p>
+    </div>
+    <div class="team">
+      <div class="person">
+        <img class="person-photo" src="assets/whitney.jpg" alt="Whitney Bateson" />
+        <h3>Whitney Bateson</h3>
+        <p class="person-role">Strategy and direction</p>
+        <p>A former dietitian turned marketing strategist for health practitioners. Whitney makes sure your site says the right things to the right people.</p>
+      </div>
+      <div class="person">
+        <img class="person-photo" src="assets/priscilla.jpg" alt="Priscilla Zaehringer" />
+        <h3>Priscilla Zaehringer</h3>
+        <p class="person-role">Project manager and builder <span class="tbd">[CONFIRM]</span></p>
+        <p>Priscilla keeps your project on track, builds your pages, and is your go-to person from kickoff to launch.</p>
+      </div>
+      <div class="person">
+        <div class="person-photo person-photo-empty" aria-hidden="true">I</div>
+        <h3>Ian <span class="tbd">[LAST NAME]</span></h3>
+        <p class="person-role">Developer</p>
+        <p>Ian handles the technical side of the move, so your site runs fast and works the way it should. <span class="tbd">[CONFIRM bio + add photo]</span></p>
+      </div>
+      <div class="person">
+        <img class="person-photo" src="assets/matt.jpg" alt="Matt Kuncaitis" />
+        <h3>Matt Kuncaitis</h3>
+        <p class="person-role">SEO expert</p>
+        <p>Matt helps the right people find you in search. Ask us about a free SEO review of your current site. <span class="tbd">[CONFIRM: offer and link]</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
-<section id="faq" class="bg-cream">
+<section id="faq" class="bg-soft bt">
   <div class="wrap">
     <div class="sec-head">
       <h2 class="h2" style="font-size:clamp(1.45rem,3vw,1.95rem)">Common questions</h2>

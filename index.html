@@ -455,6 +455,23 @@ body>section+section::before{content:'';position:absolute;top:0;left:50%;transfo
 .platform{position:relative;padding-top:64px;margin-top:64px}
 .platform::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:rgba(2,82,93,.14)}
 
+/* aligned comparison rows */
+.paths{grid-template-rows:auto}
+@supports (grid-template-rows:subgrid){
+  @media(min-width:901px){
+    .paths{grid-template-rows:repeat(7,auto);row-gap:0}
+    .path3{display:grid;grid-row:span 7;grid-template-rows:subgrid}
+    .path3-body{display:grid;grid-row:span 6;grid-template-rows:subgrid}
+    .cmp-rows{display:grid;grid-row:span 4;grid-template-rows:subgrid}
+  }
+}
+.path3-sub{margin-bottom:18px}
+.cmp-rows{margin:0;border-top:1px solid var(--border)}
+.cmp-row{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:12px 0;border-bottom:1px solid var(--border)}
+@media(max-width:480px){.cmp-row{grid-template-columns:1fr;gap:2px}}
+.cmp-row dt{font-size:14px;font-weight:700;color:var(--navy)}
+.cmp-row dd{margin:0;font-size:15.5px;color:var(--muted);line-height:1.55}
+
 /* faq */
 .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;max-width:1100px}
 @media(max-width:760px){.faq-list{grid-template-columns:1fr;max-width:700px}}
@@ -541,12 +558,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
         <div class="path3-body">
           <h3>My site is live</h3>
           <p class="path3-sub">You like what you have. We move it for you and keep it working, without weeks of rebuilding. You only send what you'd like changed.</p>
-          <p class="path3-label">Sounds like you?</p>
-          <ul class="situations">
-            <li><strong>Keep it as it is.</strong> A straight move in the same design. <em>About 3 to 4 weeks.</em></li>
-            <li><strong>Update a few things.</strong> New services, photos, wording, or branding. <em>About 3 to 5 weeks.</em></li>
-            <li><strong>Start fresh on copy.</strong> We write new words for your site.<sup>*</sup> <em>About 5 to 6 weeks.</em></li>
-          </ul>
+          <dl class="cmp-rows"><div class="cmp-row"><dt>What you send</dt><dd>A short kickoff form, plus only the changes you'd like, if any.</dd></div><div class="cmp-row"><dt>What we do</dt><dd>Move your copy, photos, and testimonials, and rebuild your site in the same design.</dd></div><div class="cmp-row"><dt>Your copy</dt><dd>Kept as is, or updated with the changes you send. Want all-new copy? We can write it.<sup>*</sup></dd></div><div class="cmp-row"><dt>Timeline</dt><dd>About 3 to 5 weeks, or 5 to 6 with new copy.</dd></div></dl>
         </div>
       </article>
       <article class="path3">
@@ -557,12 +569,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
         <div class="path3-body">
           <h3>My site isn't live yet</h3>
           <p class="path3-sub">You invested in this site, and it deserves to be live. We pick up wherever you stopped and finish it, without turning it into another huge project.</p>
-          <p class="path3-label">Sounds like you?</p>
-          <ul class="situations">
-            <li><strong>Mostly written.</strong> We edit your drafts and build it. <em>About 3 to 4 weeks.</em></li>
-            <li><strong>Started, not finished.</strong> You fill the gaps, we polish it all. <em>About 4 to 5 weeks.</em></li>
-            <li><strong>Haven't started.</strong> We write your copy for you.<sup>*</sup> <em>About 5 to 6 weeks.</em></li>
-          </ul>
+          <dl class="cmp-rows"><div class="cmp-row"><dt>What you send</dt><dd>A short kickoff form, your copy drafts (however rough), and your logo, colors, and photos.</dd></div><div class="cmp-row"><dt>What we do</dt><dd>Finish your copy, build every page in the design you chose, and launch it.</dd></div><div class="cmp-row"><dt>Your copy</dt><dd>We edit your drafts into finished copy. Haven't started? We can write it.<sup>*</sup></dd></div><div class="cmp-row"><dt>Timeline</dt><dd>About 3 to 5 weeks, or 5 to 6 if we write your copy.</dd></div></dl>
         </div>
       </article>
     </div>

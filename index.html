@@ -198,12 +198,6 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 :root{--blush2:#fff6f2}
 .g-white-blush2{background:linear-gradient(180deg,var(--limet) 0%,var(--white) 30%,var(--blush2) 100%)}
 .g-blush2-white{background:linear-gradient(180deg,var(--blush2),var(--white))}
-.shots{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 32px;margin-top:48px}
-@media(max-width:760px){.shots{grid-template-columns:1fr}}
-.shot{margin:0}
-.shot img{display:block;width:100%;height:auto}
-.shot figcaption{margin-top:12px;font-size:16px;color:var(--muted);line-height:1.55}
-.shot figcaption strong{color:var(--navy)}
 
 /* elevated paths */
 .paths{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;align-items:stretch}
@@ -229,6 +223,13 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 .path2-foot{margin-top:auto;padding-top:20px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:16px;align-items:flex-start}
 .path2-foot p{font-size:15px;color:var(--muted);margin:0}
 .paths-note{text-align:center;font-family:var(--head);font-style:italic;font-weight:600;font-size:clamp(1.15rem,2.2vw,1.35rem);color:var(--navy);margin:40px auto 0;max-width:640px}
+
+.clip-rev{grid-template-columns:1fr 1.6fr}
+.clip-rev .clip-video video{aspect-ratio:16/9}
+@media(max-width:860px){.clip-rev{grid-template-columns:1fr}.clip-rev .clip-video{order:-1}}
+.tour-steps{list-style:none;margin:18px 0 0;display:flex;flex-direction:column;gap:8px}
+.tour-steps li{font-size:16px;color:var(--muted);padding:10px 14px;border-left:3px solid var(--border);border-radius:0 var(--r) var(--r) 0;transition:background .3s,border-color .3s,color .3s}
+.tour-steps li.on{background:var(--white);border-left-color:var(--coral);color:var(--text);box-shadow:var(--sh-sm)}
 
 /* faq */
 .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;max-width:1100px}
@@ -292,7 +293,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
       <h2 class="h2">What we take off your plate</h2>
     </div>
     <div class="grid-3">
-      <div class="card"><h3>Updates without the headache</h3><p>Need to change a photo, update your pricing, or add a new service? Send it our way and we'll take care of it, or make simple edits yourself if you'd like. No digging through tutorials or worrying about messing something up. <span class="tbd">[TBD: how many edits your plan includes]</span></p></div>
+      <div class="card"><h3>Updates you won't have to relearn</h3><p>Change a photo, update your pricing, or add a blog post in a few clicks. It's simple enough that you won't need a refresher, even if it's been months since you last logged in.</p></div>
       <div class="card"><h3>Your copy, polished for you</h3><p>Send the drafts or changes you have, however rough. We'll edit them into clear, finished copy that fits your site, so you're not stuck staring at a blank page or second-guessing every word.</p></div>
       <div class="card"><h3>A clear finish line</h3><p>You'll get a roadmap with every deadline and a launch date, and we keep things moving from start to finish. No more half-done website sitting in drafts.</p></div>
     </div>
@@ -330,14 +331,23 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
       <div class="clip-text">
         <h3>Edit right on the page</h3>
         <p>Open your site, switch on edit mode, click the words you want to change, and type. Your fonts, colors, and layout stay exactly as they are, so there's nothing to break.</p>
-        <p>Rather not? Send it to us and we'll take care of it.</p>
       </div>
     </div>
-    <div class="shots">
-      <figure class="shot"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/dash-overview.jpg" alt="The dashboard home, listing Homepage, Pages, Posts, Services, Site-wide content, and Testimonials" loading="lazy" /></div><figcaption><strong>Everything in one place.</strong> Your pages, services, blog posts, and testimonials, each one click away.</figcaption></figure>
-      <figure class="shot"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/dash-homepage.jpg" alt="Editing the homepage: labeled fields for the banner photo, headline, and text" loading="lazy" /></div><figcaption><strong>Labeled fields.</strong> Each box tells you exactly which part of the page it changes.</figcaption></figure>
-      <figure class="shot"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/dash-blog.jpg" alt="Writing a blog post in a simple text editor" loading="lazy" /></div><figcaption><strong>Blog posts like a doc.</strong> Write, format, add a photo, and publish.</figcaption></figure>
-      <figure class="shot"><div class="browser"><div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div><img src="assets/dash-testimonial.jpg" alt="Adding a testimonial: headline, quote, and client name fields" loading="lazy" /></div><figcaption><strong>New testimonial?</strong> Paste the quote, add a name, and it shows up on your site.</figcaption></figure>
+    <div class="clip clip-rev">
+      <div class="clip-text">
+        <h3>Or use your dashboard</h3>
+        <p>Everything lives in one place, and every box is labeled with the part of the page it changes.</p>
+        <ul class="tour-steps" aria-label="What the dashboard tour shows">
+          <li data-at="0">Your pages, services, posts, and testimonials, one click away</li>
+          <li data-at="3.8">Labeled fields for each part of your homepage</li>
+          <li data-at="7.6">Blog posts that work like writing a doc</li>
+          <li data-at="11.4">New testimonials: paste the quote, add a name</li>
+        </ul>
+      </div>
+      <div class="browser clip-video">
+        <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+        <video id="tour" autoplay muted loop playsinline preload="metadata" poster="assets/dashboard-tour.jpg" src="assets/dashboard-tour.mp4" aria-label="A tour of the dashboard: the overview, homepage fields, the blog editor, and a testimonial form"></video>
+      </div>
     </div>
   </div>
 </section>
@@ -514,7 +524,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
       <details class="faq-item"><summary class="faq-q">How much does it cost?</summary><div class="faq-a">It depends on where your site is now and where you want it to go. Moving a live site with a few updates is the simplest. Finishing a site that never launched, or having us write your copy, takes more. Book a call with Whitney and you'll get a quote before anything starts.</div></details>
       <details class="faq-item"><summary class="faq-q">How long does it take?</summary><div class="faq-a">Most websites launch three to six weeks after kickoff. The biggest factor is how ready your copy and branding are. Once we have everything, it's two weeks to launch.</div></details>
       <details class="faq-item"><summary class="faq-q">Do I need to get on a call?</summary><div class="faq-a">Just one, if you'd like. A short call with Whitney is the easiest way to figure out what your site needs and get your quote. After that, your project runs over email and on your roadmap, on your schedule.</div></details>
-      <details class="faq-item"><summary class="faq-q">Can I still make changes myself?</summary><div class="faq-a">Yes. You'll get simple instructions for changing text, photos, and blog posts. New pages and layout changes go through us.</div></details>
+      <details class="faq-item"><summary class="faq-q">Can I make changes myself?</summary><div class="faq-a">Yes, and it's simple. Switch on edit mode and type right on the page, or use your dashboard to change text, photos, testimonials, and blog posts. There's nothing to relearn each time.</div></details>
       <details class="faq-item"><summary class="faq-q">What happens to my current site?</summary><div class="faq-a"><span class="tbd">[CONFIRM: how the switch from the current site is handled, and whether there's any downtime]</span></div></details>
       <details class="faq-item"><summary class="faq-q">Can I keep my blog posts and my domain?</summary><div class="faq-a">Yes. Tell us on the kickoff form if you'd like your existing blog posts moved over. We'll connect your domain at launch.</div></details>
       <details class="faq-item"><summary class="faq-q">Does my monthly plan change?</summary><div class="faq-a"><span class="tbd">[CONFIRM: new plan details and price]</span></div></details>
@@ -540,5 +550,13 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
   <div class="wrap">© 2026 Whitney Bateson Digital Strategy</div>
 </footer>
 
+<script>
+(function(){
+  var v=document.getElementById('tour'); if(!v) return;
+  var items=[].slice.call(document.querySelectorAll('.tour-steps li'));
+  function tick(){var t=v.currentTime,cur=0;items.forEach(function(li,i){if(t>=parseFloat(li.dataset.at))cur=i;});items.forEach(function(li,i){li.classList.toggle('on',i===cur);});}
+  v.addEventListener('timeupdate',tick); tick();
+})();
+</script>
 </body>
 </html>

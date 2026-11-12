@@ -472,6 +472,17 @@ body>section+section::before{content:'';position:absolute;top:0;left:50%;transfo
 .cmp-row dt{font-size:14px;font-weight:700;color:var(--navy)}
 .cmp-row dd{margin:0;font-size:15.5px;color:var(--muted);line-height:1.55}
 
+.g-lime-lav{background:linear-gradient(180deg,var(--limet),var(--lav))}
+.h2{max-width:780px}
+.b-big{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:48px 64px;margin-top:8px}
+@media(max-width:760px){.b-big{grid-template-columns:1fr;gap:36px}}
+.b-big li{border-top:2px solid var(--coral);padding-top:22px}
+.b-big h3{font-size:clamp(1.7rem,3vw,2.2rem);line-height:1.15;margin-bottom:10px}
+.b-big p{font-size:18px;color:var(--muted);line-height:1.65;margin:0;max-width:520px}
+.b-big .b-proof{font-size:13.5px;margin-top:12px;opacity:.85}
+.b-big .b-proof a,.b-big .b-proof span{color:var(--muted);font-style:italic}
+.b-big .b-proof a{text-decoration:underline;text-underline-offset:2px}
+
 /* faq */
 .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;max-width:1100px}
 @media(max-width:760px){.faq-list{grid-template-columns:1fr;max-width:700px}}
@@ -532,7 +543,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
 <section class="g-blush-white">
   <div class="wrap">
     <div class="sec-head">
-      <h2 class="h2">What we take off your plate</h2>
+      <h2 class="h2">Everything we'll take off your plate</h2>
     </div>
     <div class="grid-3">
       <div class="card"><h3>Easy updates, with help when you need it</h3><p>Change your words and photos in a few clicks, without relearning anything, even if it's been months since you last logged in. And when you need a hand, our team is here to help.</p></div>
@@ -546,8 +557,8 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
 <section id="options" class="g-white-lime">
   <div class="wrap">
     <div class="sec-head">
-      <h2 class="h2">Where is your site right now?</h2>
-      <p class="lead">Whether your site is live or still waiting to launch, we have a clear path for you.</p>
+      <h2 class="h2">Wherever your website is today, we'll take it from there</h2>
+      <p class="lead">Live and loved, or still waiting to launch, there's a clear path for your site.</p>
     </div>
     <div class="paths">
       <article class="path3">
@@ -581,7 +592,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
 <section class="g-lime-white roomy">
   <div class="wrap">
     <div class="editorial">
-      <h2 class="h2">You don't have to start over.</h2>
+      <h2 class="h2">You don't have to start over or lose what you've built</h2>
       <p>You've already invested time and money into your website. We're not here to undo that.</p>
       <p>Keep the design and content you love, or use this as an opportunity to make a few updates. Either way, we'll handle the move. Your domain stays the same, and your current site stays live while we build the new one. <span class="tbd">[CONFIRM: switch-over, downtime, redirects]</span></p>
     </div>
@@ -594,7 +605,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
 <section class="g-white-aqua">
   <div class="wrap">
     <div class="sec-head center">
-      <h2 class="h2">Your new website, without the technical headaches</h2>
+      <h2 class="h2">A website you can update in minutes, without the technical headaches</h2>
       <p class="lead">Here's what making a change looks like. Edit your words and photos right on the page, or from your dashboard. The layout stays locked in place, so your site always looks the way it did on launch day. No shifted sections, no wonky spacing, no wondering what you just broke.</p>
     </div>
     <div class="browser demo-big">
@@ -620,19 +631,26 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
         </div>
       </div>
     </details>
-    <div class="platform">
-      <h3 class="platform-h">Behind the scenes</h3>
-      <ul class="b-rows"><li><h3>Fast-loading pages</h3><p>Lightweight pages built to load quickly on any phone, so visitors see your practice instead of a spinning wheel.</p><p class="b-proof">12 files to load instead of 49 for the same homepage design. <span>Our Lighthouse test, Nov 2026</span></p></li><li><h3>A secure website</h3><p>Far fewer ways in for hackers, so you're not dealing with surprise warnings or worrying about your clients' trust.</p><p class="b-proof">91% of new WordPress security flaws in 2025 were in add-on plugins. <a href="https://patchstack.com/whitepaper/state-of-wordpress-security-in-2026/" target="_blank" rel="noopener">Patchstack, 2026</a></p></li><li><h3>Easier upkeep</h3><p>No plugins to keep updated and no surprise errors after an update. Your site just keeps working.</p><p class="b-proof">WordPress plugins and themes needed fixes for over 11,000 new flaws in 2025. <a href="https://patchstack.com/whitepaper/state-of-wordpress-security-in-2026/" target="_blank" rel="noopener">Patchstack, 2026</a></p></li><li><h3>A foundation for search</h3><p>Clean pages that Google and AI search tools can read easily, giving you a stronger starting point to be found.</p><p class="b-proof">Google counts page experience among its ranking signals. <a href="https://developers.google.com/search/docs/appearance/page-experience" target="_blank" rel="noopener">Google Search Central</a></p></li></ul>
+  </div>
+</section>
+
+<!-- PLATFORM -->
+<section class="g-aqua-white">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 class="h2">Built to load fast, stay secure, and keep working</h2>
+      <p class="lead">Same design you know, on a foundation that performs better and asks less of you.</p>
     </div>
+    <ul class="b-big"><li><h3>Fast-loading pages</h3><p>Lightweight pages built to load quickly on any phone, so visitors see your practice instead of a spinning wheel.</p><p class="b-proof">12 files to load instead of 49 for the same homepage design. <span>Our Lighthouse test, Nov 2026</span></p></li><li><h3>A secure website</h3><p>Far fewer ways in for hackers, so you're not dealing with surprise warnings or worrying about your clients' trust.</p><p class="b-proof">91% of new WordPress security flaws in 2025 were in add-on plugins. <a href="https://patchstack.com/whitepaper/state-of-wordpress-security-in-2026/" target="_blank" rel="noopener">Patchstack, 2026</a></p></li><li><h3>Easier upkeep</h3><p>No plugins to keep updated and no surprise errors after an update. Your site just keeps working.</p><p class="b-proof">WordPress plugins and themes needed fixes for over 11,000 new flaws in 2025. <a href="https://patchstack.com/whitepaper/state-of-wordpress-security-in-2026/" target="_blank" rel="noopener">Patchstack, 2026</a></p></li><li><h3>A foundation for search</h3><p>Clean pages that Google and AI search tools can read easily, giving you a stronger starting point to be found.</p><p class="b-proof">Google counts page experience among its ranking signals. <a href="https://developers.google.com/search/docs/appearance/page-experience" target="_blank" rel="noopener">Google Search Central</a></p></li></ul>
   </div>
 </section>
 
 <!-- WHAT YOU GET -->
-<section class="g-aqua-white">
+<section class="g-white-lime">
   <div class="wrap">
     <div class="incl2">
       <div class="incl2-head">
-        <h2 class="h2">What's included</h2>
+        <h2 class="h2">Everything that comes with your move</h2>
         <p class="lead">Every move comes with all of this, whether your site is live or still waiting to launch.</p>
       </div>
       <ul class="inc-list incl2-list">
@@ -651,10 +669,10 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
 </section>
 
 <!-- HOW IT WORKS -->
-<section class="g-white-lav">
+<section class="g-lime-lav">
   <div class="wrap">
     <div class="sec-head">
-      <h2 class="h2">Here's how we'll get it done, and who you'll work with</h2>
+      <h2 class="h2">Three simple phases, led by the team you already know</h2>
       <p class="lead">The same small team you already know. Most websites launch three to six weeks after kickoff, depending on how ready your copy and branding are.</p>
     </div>
     <div class="steps-ed">
@@ -685,7 +703,7 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
 <section id="faq" class="g-lav-blush">
   <div class="wrap">
     <div class="sec-head">
-      <h2 class="h2">Common questions</h2>
+      <h2 class="h2">Answers to the questions we hear most</h2>
     </div>
     <div class="key-answers">
       <div><h3>What does it cost?</h3><p>It's based on the pages your site needs and where it is today. A straight move costs less than starting from scratch with new copy. You'll get a clear quote on your call, before any work starts. <span class="tbd">[OPTIONAL: starting at $___]</span></p></div>

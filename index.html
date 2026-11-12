@@ -188,6 +188,13 @@ nav{position:sticky;top:0;z-index:100;background:var(--white);border-bottom:1px 
 .benefit h3{font-size:1.35rem;margin-bottom:6px}
 .benefit p{font-size:16px;color:var(--muted);line-height:1.62;margin:0}
 
+/* edit-mode clip */
+.clip{display:grid;grid-template-columns:1.6fr 1fr;gap:40px;align-items:center;margin-top:48px}
+@media(max-width:860px){.clip{grid-template-columns:1fr;gap:24px}}
+.clip-video video{display:block;width:100%;height:auto;aspect-ratio:1280/634;object-fit:cover;background:var(--soft)}
+.clip-text h3{font-size:clamp(1.4rem,2.4vw,1.75rem);margin-bottom:12px}
+.clip-text p{font-size:17px;color:var(--muted);line-height:1.65}
+
 /* faq */
 .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 20px;max-width:1100px}
 @media(max-width:760px){.faq-list{grid-template-columns:1fr;max-width:700px}}
@@ -253,6 +260,17 @@ footer{background:var(--white);border-top:1px solid var(--border);padding:24px 0
       <div class="card"><h3>Updates without the headache</h3><p>Need to change a photo, update your pricing, or add a new service? Send it our way and we'll take care of it, or make simple edits yourself if you'd like. No digging through tutorials or worrying about messing something up. <span class="tbd">[TBD: how many edits your plan includes]</span></p></div>
       <div class="card"><h3>Your copy, polished for you</h3><p>Send the drafts or changes you have, however rough. We'll edit them into clear, finished copy that fits your site, so you're not stuck staring at a blank page or second-guessing every word.</p></div>
       <div class="card"><h3>A clear finish line</h3><p>You'll get a roadmap with every deadline and a launch date, and we keep things moving from start to finish. No more half-done website sitting in drafts.</p></div>
+    </div>
+    <div class="clip">
+      <div class="browser clip-video">
+        <div class="browser-bar" aria-hidden="true"><span></span><span></span><span></span></div>
+        <video autoplay muted loop playsinline preload="metadata" poster="assets/edit-mode.jpg" src="assets/edit-mode.mp4" aria-label="Turning on edit mode, clicking the homepage headline, and typing a new one"></video>
+      </div>
+      <div class="clip-text">
+        <h3>Want to make a quick change yourself?</h3>
+        <p>Open your site, switch on edit mode, click the words you want to change, and type. Your fonts, colors, and layout stay exactly as they are, so there's nothing to break.</p>
+        <p>Rather not? Send it to us and we'll take care of it.</p>
+      </div>
     </div>
   </div>
 </section>
